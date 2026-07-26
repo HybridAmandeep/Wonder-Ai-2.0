@@ -2095,6 +2095,28 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
 
+    // Mobile Hamburger Menu & Slide-Over Navigation Controller
+    const initMobileNavigation = () => {
+        const hamburger = document.getElementById('hamburger');
+        const slideMenu = document.getElementById('mobileSlideMenu');
+        const overlay = document.getElementById('mobileOverlay');
+        const closeBtn = document.getElementById('mobileClose');
+
+        const openMenu = () => {
+            if (slideMenu) slideMenu.classList.add('active');
+            if (overlay) overlay.classList.add('active');
+        };
+
+        const closeMenu = () => {
+            if (slideMenu) slideMenu.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
+        };
+
+        if (hamburger) hamburger.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+    };
+
     // Execute Landing Page Component Initializations
     initTopUtility();
     updateWishlistBadge();
@@ -2112,7 +2134,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initPricingToggle();
     initDemoPaymentSystem();
     initDashboardView();
+    initMobileNavigation();
 
 });
+
 
 

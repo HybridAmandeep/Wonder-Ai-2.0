@@ -5564,6 +5564,374 @@ body.site-body {
     transform: translateX(22px);
 }
 
+/* ==========================================================================
+   COMPLETE MOBILE RESPONSIVE OPTIMIZATION & NAVIGATION (Screen <= 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Body spacing for fixed mobile bottom nav */
+    body {
+        padding-bottom: 74px !important;
+    }
+
+    /* Top utility bar responsiveness */
+    .top-bar {
+        padding: 6px 12px;
+    }
+    .top-bar-container {
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.78rem;
+    }
+    .top-bar-left .desktop-only {
+        display: none !important;
+    }
+    .top-utility-link {
+        font-size: 0.78rem;
+    }
+
+    /* Main Desktop Header -> Mobile Adaptations */
+    .main-header {
+        padding: 10px 16px;
+    }
+    .header-container {
+        padding: 0;
+    }
+    .primary-service-tabs {
+        display: none !important;
+    }
+    .nav-secondary-link {
+        display: none !important;
+    }
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2.5px;
+        background: #FFFFFF;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Mobile Slide-Over Menu */
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(10, 25, 47, 0.7);
+        backdrop-filter: blur(6px);
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .mobile-slide-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background: #001736;
+        color: #FFFFFF;
+        z-index: 10001;
+        padding: 24px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+    }
+    .mobile-slide-menu.active {
+        right: 0;
+    }
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .mobile-close {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #FFFFFF;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .mobile-menu-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+        padding: 12px 16px;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+    }
+    .mobile-menu-link:hover, .mobile-menu-link.active {
+        background: rgba(0, 108, 228, 0.3);
+        color: #FFFFFF;
+    }
+
+    /* Fixed Touch-Friendly Mobile Bottom Navigation Bar */
+    .mobile-nav {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 64px !important;
+        background: #001736 !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        display: flex !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        z-index: 9999 !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+    .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .mobile-nav-item.active {
+        color: var(--brand-yellow) !important;
+    }
+    .mobile-nav-icon-wrap i {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Hero & Multi-Tab Search Widget on Mobile */
+    .hero-booking-section {
+        padding: 32px 16px;
+    }
+    .hero-title {
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem !important;
+    }
+    .search-widget-container {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .search-tabs-header {
+        overflow-x: auto;
+        padding-bottom: 8px;
+        gap: 6px;
+    }
+    .search-tab-btn {
+        font-size: 0.82rem;
+        padding: 8px 12px;
+        white-space: nowrap;
+    }
+    .search-form-grid, .flights-form, .ai-form, .packages-form {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+    .guest-popover {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90% !important;
+        max-width: 320px !important;
+        z-index: 10002 !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+    }
+
+    /* Page Titles & Grids on Mobile */
+    .explore-page-title, .section-main-heading {
+        font-size: 1.6rem !important;
+    }
+    .explore-main-container, .checkout-grid, .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .sticky-summary-card {
+        position: static !important;
+    }
+    .pricing-portal-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+    .portal-price-card.popular-card {
+        transform: none !important;
+    }
+    .destinations-portal-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .property-types-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Dashboard Mobile Banner */
+    .dashboard-welcome-banner {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 16px !important;
+        padding: 24px 20px !important;
+    }
+    .dash-plan-badge-box {
+        text-align: center !important;
+    }
+    .dash-welcome-text h2 {
+        font-size: 1.4rem !important;
+    }
+
+    /* Modals & Popups on Mobile */
+    .modal-content, .demo-payment-modal {
+        width: 94% !important;
+        max-height: 88vh !important;
+        overflow-y: auto !important;
+    }
+    .modal-grid-columns {
+        grid-template-columns: 1fr !important;
+    }
+    .modal-hero-img {
+        height: 180px !important;
+    }
+    .weather-widget {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    .weather-right {
+        text-align: left !important;
+    }
+
+    /* Auth Cards on Mobile */
+    .auth-card-wrapper {
+        padding: 24px 16px !important;
+        width: 94% !important;
+    }
+}
+
+/* ==========================================================================
+   UNIVERSAL ZOOM ADAPTABILITY & FLUID RESPONSIVE ENGINE (50% to 300%+ Zoom)
+   ========================================================================== */
+
+/* 1. Fluid Container & Box Sizing Protection */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container, .site-body, .page-transition {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(16px, 4vw, 32px);
+    padding-right: clamp(16px, 4vw, 32px);
+}
+
+/* 2. Responsive Image & Vector Scaling on Zoom */
+img, svg, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 3. Fluid Responsive Typography for Extreme Zoom Levels */
+h1, .hero-title, .section-main-heading, .explore-page-title {
+    font-size: clamp(1.8rem, 4vw + 1rem, 3rem);
+}
+h2 {
+    font-size: clamp(1.4rem, 3vw + 0.8rem, 2.2rem);
+}
+h3 {
+    font-size: clamp(1.1rem, 2vw + 0.6rem, 1.6rem);
+}
+
+/* 4. Adaptive Flexbox & Grid Reflow on High Zoom (125%, 150%, 200%, 250%+) */
+@media (max-width: 1280px) {
+    .destinations-portal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .pricing-portal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .footer-main-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .explore-main-container {
+        grid-template-columns: 1fr;
+    }
+    .sticky-summary-card {
+        position: static;
+    }
+}
+
+/* 5. Extreme Zoom Overlap Protection (Modals, Popovers, Top Bars) */
+.modal-content, .demo-payment-modal {
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.guest-popover {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.top-bar-container, .header-container {
+    flex-wrap: wrap;
+}
+
+/* 6. High DPI / Retina & High Zoom Contrast Enhancements */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+
+
 
 
 

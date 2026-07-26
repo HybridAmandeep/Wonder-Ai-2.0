@@ -2,7 +2,16 @@
 
 ![WanderAI Banner](assets/logo.png)
 
-> **WanderAI** is a world-class, high-converting travel booking portal and AI itinerary planner designed with inspiration from **Booking.com**, **Kayak**, **MakeMyTrip**, and **Agoda**.
+> **WanderAI** is a world-class, high-converting travel booking portal and AI itinerary planner designed with inspiration from **Booking.com**, **Kayak**, **MakeMyTrip**, and **Agoda**, fully optimized for **both Desktop and Mobile Access** across **all browser zoom levels (50% to 300%+)**.
+
+---
+
+## 🔍 Universal Zoom Adaptability & Responsive UI
+
+- **Adaptable Across All Zoom Levels (50% to 300%+)**: Uses fluid typography (`clamp()`), flex wrapping, and responsive container bounds (`max-width: 100%`) so elements never break or trigger unwanted horizontal scrollbars when zooming in/out.
+- **Extreme Zoom Safety**: Popovers, modals, and headers automatically feature height constraints (`max-height: 90vh`) with internal vertical scrolling so no buttons or inputs are ever cut off.
+- **Fixed Mobile Bottom Navigation (`.mobile-nav`)**: Touch-friendly bottom tabs (**Home**, **Stays**, **AI Plan**, **Saved**, **Account**) for smartphone viewports.
+- **Slide-Over Mobile Drawer (`.mobile-slide-menu`)**: Smooth hamburger menu transition with backdrop blur overlay.
 
 ---
 
