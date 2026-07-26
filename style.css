@@ -5845,20 +5845,27 @@ body.site-body {
    UNIVERSAL ZOOM ADAPTABILITY & FLUID RESPONSIVE ENGINE (50% to 300%+ Zoom)
    ========================================================================== */
 
-/* 1. Fluid Container & Box Sizing Protection */
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+/* 1. 100% Full-Bleed Edge-to-Edge Screen Coverage (Eliminates White Side Strips on 16:9 Widescreens) */
+html, body, .site-body, .page-transition {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
 }
 
-.container, .site-body, .page-transition {
+.top-bar, .main-header, .hero-booking-section, .site-footer, .checkout-progress-banner, .genius-promo-section, .why-choose-us-section {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.container {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: clamp(16px, 4vw, 32px);
-    padding-right: clamp(16px, 4vw, 32px);
+    padding-left: clamp(16px, 4vw, 36px);
+    padding-right: clamp(16px, 4vw, 36px);
 }
 
 /* 2. Responsive Image & Vector Scaling on Zoom */
@@ -5929,6 +5936,56 @@ h3 {
         -moz-osx-font-smoothing: grayscale;
     }
 }
+
+/* ==========================================================================
+   16:9 WIDESCREEN FULL-BLEED ENGINE (ELIMINATES ALL WHITE SIDE STRIPS)
+   ========================================================================== */
+html, body, .site-body, .page-transition {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+    background-color: #001736 !important; /* Seamless dark fill for full bleed */
+}
+
+/* All Top-Level Section Wrappers Stretch 100% Edge-to-Edge */
+.top-bar,
+.main-header,
+.hero-booking-section,
+.explore-header-banner,
+.checkout-progress-banner,
+.dashboard-welcome-banner,
+.genius-promo-section,
+.trending-destinations-section,
+.ai-playground-section,
+.property-types-section,
+.special-offers-section,
+.reviews-section,
+.trust-stats-bar,
+.site-footer,
+section {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Inner Centered Content Container */
+.container,
+.top-bar-container,
+.header-container,
+.hero-container {
+    width: 100% !important;
+    max-width: 1360px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: clamp(16px, 4vw, 32px) !important;
+    padding-right: clamp(16px, 4vw, 32px) !important;
+    box-sizing: border-box !important;
+}
+
 
 
 
