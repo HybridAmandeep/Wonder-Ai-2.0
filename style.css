@@ -5938,8 +5938,10 @@ h3 {
 }
 
 /* ==========================================================================
-   16:9 WIDESCREEN FULL-BLEED ENGINE (ELIMINATES ALL WHITE SIDE STRIPS)
+   EXPERT HIGH-CONTRAST TYPOGRAPHY & FULL-BLEED ENGINE
    ========================================================================== */
+
+/* 1. Global Page Layout & Light Background */
 html, body, .site-body, .page-transition {
     width: 100% !important;
     max-width: 100% !important;
@@ -5948,16 +5950,17 @@ html, body, .site-body, .page-transition {
     padding: 0 !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
-    background-color: #001736 !important; /* Seamless dark fill for full bleed */
+    background-color: #F5F7FA !important; /* Clean light portal background */
 }
 
-/* All Top-Level Section Wrappers Stretch 100% Edge-to-Edge */
+/* 2. Top-Level Section Wrappers Stretch 100% Edge-to-Edge */
 .top-bar,
 .main-header,
 .hero-booking-section,
 .explore-header-banner,
 .checkout-progress-banner,
 .dashboard-welcome-banner,
+.genius-banner-section,
 .genius-promo-section,
 .trending-destinations-section,
 .ai-playground-section,
@@ -5970,6 +5973,102 @@ section {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+}
+
+/* 3. High-Contrast Typography for Light Sections */
+.site-body h1,
+.site-body h2,
+.site-body h3,
+.site-body h4,
+.section-main-heading,
+.portal-card-title,
+.explore-page-title,
+.filter-title,
+.auth-title,
+.card-plan-header h3,
+.price-display {
+    color: #0F172A !important; /* Dark Slate Black for maximum legibility */
+}
+
+.site-body p,
+.section-sub-heading,
+.explore-page-subtitle,
+.portal-card-country,
+.auth-subtitle,
+.card-reviews-text,
+.plan-sub-desc {
+    color: #475569 !important; /* Readable Medium Slate Grey */
+}
+
+/* 4. High-Contrast Typography for Dark Sections (Top Bar, Main Header, Hero, Footer) */
+.top-bar,
+.top-bar *,
+.main-header,
+.main-header .logo-text,
+.hero-booking-section,
+.hero-main-title,
+.site-footer,
+.site-footer *,
+.mobile-slide-menu,
+.mobile-slide-menu * {
+    color: #FFFFFF !important;
+}
+
+.top-bar-item i,
+.top-utility-link:hover,
+.logo-accent {
+    color: #38BDF8 !important;
+}
+
+/* 5. Genius Member Perks Banner Styling Fix */
+.genius-card {
+    background: linear-gradient(135deg, #0A192F 0%, #003580 100%) !important;
+    border: 2px solid #FFB700 !important;
+    border-radius: 16px !important;
+    padding: 32px 40px !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.genius-card h2,
+.genius-card p,
+.genius-left h2,
+.genius-left p {
+    color: #FFFFFF !important;
+}
+
+.genius-badge {
+    background: #FFB700 !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+    font-size: 0.8rem !important;
+    padding: 4px 12px !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.genius-right .btn-primary {
+    background: #0EA5E9 !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    border: none !important;
+    padding: 14px 28px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4) !important;
+}
+
+.genius-right .btn-secondary {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #FFB700 !important;
+    border: 1.5px solid #FFB700 !important;
+    font-weight: 800 !important;
+    padding: 14px 24px !important;
+    border-radius: 10px !important;
 }
 
 /* Inner Centered Content Container */
