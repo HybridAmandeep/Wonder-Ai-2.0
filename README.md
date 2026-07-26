@@ -1,33 +1,36 @@
 <div align="center">
 
-<img src="assets/logo.png" width="180" alt="WanderAI Logo"/>
+<img src="assets/logo.png" alt="WanderAI Logo" width="180">
 
-# ✈️ WanderAI
+# ✈️ WanderAI 2.0
 
-### AI-Powered Travel Booking & Intelligent Itinerary Planner
+### AI-Powered Travel Booking & Intelligent Itinerary Platform
 
-Plan smarter. Travel better. Explore the world with AI.
+Plan smarter • Travel better • Powered by AI
 
 <p align="center">
 
-<a href="https://wonder-ai-swart.vercel.app">
-<img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-0EA5E9?style=for-the-badge">
+<a href="https://wonder-ai-2-0.vercel.app/">
+<img src="https://img.shields.io/badge/🚀_Live_Demo-WanderAI_2.0-0EA5E9?style=for-the-badge">
 </a>
+
+<br><br>
 
 <img src="https://img.shields.io/github/stars/HybridAmandeep/Wonder-Ai?style=for-the-badge">
 <img src="https://img.shields.io/github/forks/HybridAmandeep/Wonder-Ai?style=for-the-badge">
 <img src="https://img.shields.io/github/license/HybridAmandeep/Wonder-Ai?style=for-the-badge">
 <img src="https://img.shields.io/github/last-commit/HybridAmandeep/Wonder-Ai?style=for-the-badge">
+<img src="https://img.shields.io/badge/Responsive-Desktop%20%7C%20Tablet%20%7C%20Mobile-success?style=for-the-badge">
 
 </p>
 
 <p>
 
+<a href="https://wonder-ai-2-0.vercel.app/">🌐 Live Demo</a> •
 <a href="#preview">Preview</a> •
 <a href="#features">Features</a> •
 <a href="#screenshots">Screenshots</a> •
-<a href="#tech-stack">Tech Stack</a> •
-<a href="#getting-started">Getting Started</a>
+<a href="#tech-stack">Tech Stack</a>
 
 </p>
 
@@ -37,15 +40,21 @@ Plan smarter. Travel better. Explore the world with AI.
 
 # 🌍 About
 
-WanderAI is a modern AI-powered travel platform that combines intelligent trip planning, hotel discovery, booking management, live weather, secure checkout, wishlist synchronization, and a personalized dashboard into one seamless travel experience.
+**WanderAI 2.0** is a premium AI-powered travel booking platform that combines intelligent itinerary generation, destination discovery, secure booking, membership management, and a personalized travel dashboard into one seamless experience.
 
-Inspired by industry-leading platforms including **Booking.com**, **Kayak**, **Agoda**, and **MakeMyTrip**, WanderAI focuses on delivering a clean, responsive, and highly interactive user experience.
+Inspired by industry-leading travel platforms such as **Booking.com**, **Kayak**, **Agoda**, and **MakeMyTrip**, WanderAI delivers a modern, responsive, and highly interactive user experience across desktop and mobile devices.
 
 ---
 
-# 🚀 Preview
+# 🚀 Live Demo
 
-> Replace these images with your own screenshots.
+### 🌐 https://wonder-ai-2-0.vercel.app/
+
+---
+
+# 📸 Preview
+
+> Replace these screenshots with your own.
 
 <p align="center">
 
@@ -57,54 +66,45 @@ Inspired by industry-leading platforms including **Booking.com**, **Kayak**, **A
 
 # ✨ Features
 
-| Feature | Description |
+| Module | Description |
 |---------|-------------|
-| 🤖 AI Trip Planner | Generate personalized itineraries with AI |
-| 🏨 Hotel Booking | Search and explore destinations |
-| ✈️ Flight Search | Multi-modal booking interface |
+| 🤖 AI Trip Planner | Generate personalized travel itineraries |
+| 🏨 Hotel & Stay Search | Explore hotels worldwide |
+| ✈️ Flight Search | Multi-modal booking experience |
+| 🌍 Destination Explorer | Smart filtering & recommendations |
 | 🌦 Live Weather | OpenWeatherMap integration |
-| 💳 Secure Checkout | Complete booking with payment simulation |
-| ❤️ Wishlist | Save and manage favorite destinations |
-| 📊 Dashboard | View bookings and account information |
-| 👑 Membership | Explorer, Nomad & Atlas VIP plans |
-| 📱 Responsive Design | Mobile-first and desktop optimized |
-| 🎨 Design System | Complete UI Kit and Brand Guide |
+| 💳 Secure Checkout | Interactive booking flow |
+| ❤️ Wishlist | Save favorite destinations |
+| 📊 Dashboard | Manage trips and profile |
+| 👑 Membership Plans | Explorer, Nomad & Atlas VIP |
+| 🎨 Design System | Complete UI Kit & Brand Guide |
 
 ---
 
 # 📱 Responsive Experience
 
-Designed to work perfectly on every device.
+Designed for every screen size.
 
-✅ Desktop
-
-✅ Laptop
-
-✅ Tablet
-
-✅ Mobile
-
-✅ Touch Devices
-
-✅ 50% – 300% Browser Zoom
-
-✅ No Horizontal Scrolling
-
-✅ Responsive Navigation
-
-✅ Bottom Mobile Navigation
-
-✅ Slide-over Mobile Drawer
+- ✅ Desktop
+- ✅ Laptop
+- ✅ Tablet
+- ✅ Mobile
+- ✅ 50%–300% Browser Zoom
+- ✅ Touch Optimized
+- ✅ Bottom Navigation
+- ✅ Slide-over Navigation Drawer
+- ✅ Adaptive Layout
+- ✅ Zero Horizontal Scrolling
 
 ---
 
-# 📸 Screenshots
+# 🖼 Screenshots
 
-| Home | AI Planner |
-|------|------------|
+| Landing Page | AI Planner |
+|---------------|------------|
 | ![](screenshots/home.png) | ![](screenshots/ai-planner.png) |
 
-| Booking | Checkout |
+| Explore | Checkout |
 |----------|----------|
 | ![](screenshots/booking.png) | ![](screenshots/checkout.png) |
 
@@ -112,84 +112,77 @@ Designed to work perfectly on every device.
 |------------|-----------|
 | ![](screenshots/dashboard.png) | ![](screenshots/wishlist.png) |
 
-| Pricing | Moodboard |
-|----------|------------|
+| Pricing | Design System |
+|----------|---------------|
 | ![](screenshots/pricing.png) | ![](screenshots/moodboard.png) |
 
 ---
 
-# 🌟 Key Modules
+# 🌟 Core Features
 
 ## 🤖 AI Travel Planner
 
-- Smart itinerary generation
+- AI-generated itineraries
 - Budget estimation
 - Destination suggestions
-- Best travel season
-- Daily timeline
+- Weather-aware planning
 - Activity recommendations
+- Interactive timeline
 
 ---
 
-## 🏨 Smart Booking
+## 🏨 Multi-Modal Booking
 
 - Hotels
 - Flights
 - Packages
 - Cars
-- AI Planning
+- AI Planner
 
-Features
+### Includes
 
-- Destination autocomplete
-- Guest selector
-- Airport swap
-- Date range picker
+- Destination Autocomplete
+- Passenger Selector
+- Airport Swap
+- Date Range Picker
 
 ---
 
 ## 🌍 Destination Explorer
 
-Advanced filtering with
+Advanced search with
 
-- Search
-- Budget
-- Duration
-- Categories
+- Keyword Search
+- Budget Slider
+- Duration Filter
+- Category Filter
 - Travel Vibe
 
-Each destination includes
+Every destination includes
 
-- Weather
-- Activities
-- Cost Calculator
+- Weather Forecast
+- Cost Estimator
+- Activity List
 - Destination Details
 
 ---
 
-## 💳 Secure Checkout
-
-Complete booking flow
+## 💳 Smart Checkout
 
 ```
 Destination
-      ↓
+      │
+      ▼
 Traveler Details
-      ↓
-Payment
-      ↓
+      │
+      ▼
+Payment Gateway
+      │
+      ▼
 Booking Confirmation
 ```
 
-Includes
-
-- Progress Tracker
-- Booking Summary
-- Taxes
-- Discounts
-- Coupon Engine
-
-Supported Coupons
+### Supported Coupons
 
 ```
 WANDERAI20
@@ -197,7 +190,7 @@ GENIUS15
 FLYAI10
 ```
 
-Payment Methods
+### Payment Options
 
 - UPI
 - QR Code
@@ -209,8 +202,8 @@ Payment Methods
 ## 📊 Dashboard
 
 - Confirmed Trips
+- User Profile
 - Membership Status
-- Account Settings
 - Booking History
 - Local Storage Sync
 
@@ -218,21 +211,21 @@ Payment Methods
 
 ## ❤️ Wishlist
 
-- Save Trips
-- Remove Trips
+- Save Destinations
+- Remove Saved Trips
 - Live Counter
-- Direct Booking
-- Empty State
+- Book Directly
+- Empty State UI
 
 ---
 
-## 👑 Membership Plans
+## 👑 Membership
 
-| Plan | Monthly |
-|------|---------:|
+| Plan | Price |
+|------|-------:|
 | Explorer | Free |
-| Nomad Pass | $12 |
-| Atlas VIP | $29 |
+| Nomad Pass | $12/month |
+| Atlas VIP | $29/month |
 
 Supports
 
@@ -242,13 +235,24 @@ Supports
 
 ---
 
-# 🏗 Project Structure
+# 🛠 Tech Stack
+
+| Frontend | Libraries | APIs |
+|----------|-----------|------|
+| HTML5 | Flatpickr | OpenWeatherMap |
+| CSS3 | Lucide Icons | LocalStorage |
+| Vanilla JavaScript (ES6+) | Phosphor Icons | |
+
+---
+
+# 📂 Project Structure
 
 ```text
 📦 WanderAI
 │
 ├── 📂 assets
 ├── 📂 images
+├── 📂 screenshots
 │
 ├── 📄 index.html
 ├── 📄 booking.html
@@ -269,43 +273,6 @@ Supports
 
 ---
 
-# 🛠 Tech Stack
-
-| Frontend | Libraries | APIs |
-|----------|-----------|------|
-| HTML5 | Flatpickr | OpenWeatherMap |
-| CSS3 | Lucide Icons | LocalStorage |
-| JavaScript (ES6+) | Phosphor Icons | |
-
----
-
-# 🎨 Design System
-
-### Colors
-
-| Name | Hex |
-|------|------|
-| Brand Navy | `#003580` |
-| Booking Blue | `#006CE4` |
-| AI Cyan | `#0EA5E9` |
-| Genius Gold | `#FFB700` |
-| Coral Pink | `#F43F5E` |
-
-### Typography
-
-- Plus Jakarta Sans
-- Inter
-
-### Design Principles
-
-- Glassmorphism
-- Soft Shadows
-- Rounded UI
-- Responsive Layout
-- Smooth Microinteractions
-
----
-
 # 🚀 Getting Started
 
 Clone the repository
@@ -320,7 +287,7 @@ Move into the project
 cd Wonder-Ai
 ```
 
-Run locally
+Run the application
 
 ```bash
 npx http-server .
@@ -332,75 +299,77 @@ or simply open
 index.html
 ```
 
-inside your browser.
+in your browser.
 
 ---
 
-# 📌 Pages
+# 📈 Project Highlights
 
-| Page | Description |
-|------|-------------|
-| Home | Landing Page |
-| Booking | Destination Explorer |
-| Checkout | Payment Flow |
-| Dashboard | User Portal |
-| Wishlist | Saved Trips |
-| Pricing | Membership Plans |
-| Login | Authentication |
-| Signup | Registration |
-| Moodboard | Brand Guide |
+| Metric | Value |
+|---------|------:|
+| Pages | 9 |
+| JavaScript | ES6+ |
+| Responsive | ✅ |
+| Weather API | ✅ |
+| Mobile Optimized | ✅ |
+| Glassmorphism UI | ✅ |
+| Browser Support | Modern Browsers |
 
 ---
 
 # 🛣 Roadmap
 
 - [x] AI Trip Planner
-- [x] Booking Flow
+- [x] Smart Booking Flow
+- [x] Weather Integration
 - [x] Wishlist
 - [x] Dashboard
-- [x] Payment Simulation
-- [x] Responsive UI
+- [x] Membership Plans
+- [x] Responsive Design
 - [ ] Google Maps Integration
-- [ ] Stripe Payments
+- [ ] Stripe Payment Gateway
 - [ ] Firebase Authentication
 - [ ] AI Chat Assistant
 - [ ] Dark Mode
-- [ ] Mobile App
+- [ ] Progressive Web App (PWA)
 
 ---
 
 # 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome.
+Contributions are welcome!
 
-Feel free to fork the project and submit a pull request.
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
 
 ---
 
 # 📄 License
 
-Distributed under the MIT License.
+This project is distributed under the **MIT License**.
 
-See `LICENSE` for more information.
+See the **LICENSE** file for more information.
 
 ---
 
-# 🙌 Acknowledgements
+# 🙏 Credits
 
-Inspired by
+### Design Inspiration
 
 - Booking.com
 - Agoda
 - Kayak
 - MakeMyTrip
 
-Libraries
+### Libraries
 
 - Lucide Icons
 - Phosphor Icons
 - Flatpickr
 
-API
+### API
 
 - OpenWeatherMap
 
@@ -408,8 +377,13 @@ API
 
 <div align="center">
 
-## ⭐ If you enjoyed this project, consider giving it a Star!
+## ⭐ If you like this project, consider giving it a Star!
 
 Made with ❤️ by **Amandeep Kumar**
+
+<a href="https://wonder-ai-2-0.vercel.app/">
+<br><br>
+<img src="https://img.shields.io/badge/Visit-WanderAI_2.0-0EA5E9?style=for-the-badge">
+</a>
 
 </div>
