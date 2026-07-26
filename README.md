@@ -1,207 +1,103 @@
-<div align="center">
+# ✈️ WanderAI — AI-Powered Travel Booking & Itinerary Platform
 
-<img src="assets/logo.png" width="180">
+![WanderAI Banner](assets/logo.png)
 
-# WanderAI
-
-### ✈️ AI-Powered Travel Booking & Intelligent Trip Planner
-
-Build smarter trips with AI-generated itineraries, real-time weather,
-destination discovery, secure booking, and beautiful travel experiences.
-
-<p align="center">
-<img src="https://img.shields.io/github/license/HybridAmandeep/Wonder-Ai">
-<img src="https://img.shields.io/github/stars/HybridAmandeep/Wonder-Ai">
-<img src="https://img.shields.io/github/forks/HybridAmandeep/Wonder-Ai">
-<img src="https://img.shields.io/github/languages/top/HybridAmandeep/Wonder-Ai">
-<img src="https://img.shields.io/github/last-commit/HybridAmandeep/Wonder-Ai">
-</p>
-
-<a href="https://wonder-ai-swart.vercel.app">
-Live Demo
-</a>
-•
-<a href="#features">
-Features
-</a>
-•
-<a href="#screenshots">
-Screenshots
-</a>
-
-</div>
+> **WanderAI** is a world-class, high-converting travel booking portal and AI itinerary planner designed with inspiration from **Booking.com**, **Kayak**, **MakeMyTrip**, and **Agoda**.
 
 ---
 
-# 🚀 Preview
+## 🌟 Key Features & Highlights
 
-> Full Landing Page
+### 🏨 1. Multi-Modal Booking Search Widget
+- **Tabs**: Search for **Stays**, **Flights**, **AI Trip Planner**, **Packages**, and **Cars**.
+- **Guests & Rooms Counter Popover**: Interactive counter controls (+ / -) for adults, children, and room allocation.
+- **Flight Route Controls**: One-click origin/destination airport swap button.
+- **Twin Datepicker**: Integrated range selection via Flatpickr.
+- **Autocomplete Search**: Instant dropdown search for global destinations.
 
-<p align="center">
-<img src="screenshots/landing.png">
-</p>
+### ✨ 2. Live AI Itinerary Generator & Playground
+- **Prompt Switcher**: One-click prompt pills for Kyoto, Maldives, Swiss Alps, and Santorini.
+- **Interactive Timeline**: Renders day-by-day travel breakdown, activity tags, estimated budget, best travel season, and weather forecasts.
 
----
+### 🏔️ 3. Global Explore & Search Portal (`booking.html`)
+- **Filter Panel**: Refine results by keyword search, vibe/category (Beach, Ski, Nature, Culture), max budget slider, and duration slider.
+- **Destination Detail View Modal**: Features live **OpenWeatherMap API** integration (temperature, humidity, wind speed, weather icon), included activities list, and real-time cost calculator.
 
-# 🌟 Why WanderAI?
+### 💳 4. Secure Checkout & Demo Payment Gateway (`checkout.html`)
+- **Step Progress Bar**: `1. Select Destination ➔ 2. Traveler & Billing ➔ 3. Instant Payment`.
+- **Itemized Summary Card**: Auto-populates base rate, Genius member discount, taxes, and total.
+- **Coupon Code Engine**: Validates promo codes (`WANDERAI20`, `GENIUS15`, `FLYAI10`) with live price recalculation.
+- **Demo Payment Gateway Popup Modal**:
+  - **UPI / QR Code Tab**: QR Scanner graphic & VPA ID input (e.g. `user@upi`).
+  - **Debit / Credit Card Tab**: Real-time card input formatting.
+- **Automated Dashboard Sync**: 1.5-second realistic authorization simulation, instant success toast, and automatic redirection to `dashboard.html`.
 
-Unlike traditional travel websites,
-WanderAI combines booking and AI planning into one experience.
+### 🧳 5. User Travel Desk & Dashboard (`dashboard.html`)
+- **Genius Loyalty Tier Badge**: Displays active user membership status (Genius Level 2).
+- **My Confirmed Trips**: Renders all completed bookings stored in `localStorage`.
+- **Account Settings**: Interactive user profile form.
 
-✔ AI Itinerary Generator
+### 💖 6. Saved Wishlist (`wishlist.html`)
+- **Live Wishlist Sync**: Heart toggle buttons on destination cards sync instantly with top utility bar counter (`#navWishlistCount`).
+- **Wishlist Grid**: Saved cards feature 1-click remove and direct "Book Saved Trip" CTAs.
+- **Empty State UI**: Clean call-to-action when no trips are saved.
 
-✔ Live Weather
+### 👑 7. Membership Tiers & Pricing (`pricing.html`)
+- **Plans**: Explorer ($0/mo), Nomad Pass ($12/mo), and Atlas VIP ($29/mo).
+- **Interactive Toggle Switch**: Smooth Monthly vs. Annual Billing switch with a white circular knob (saves 20% on annual plans).
 
-✔ Destination Explorer
-
-✔ Wishlist
-
-✔ Smart Dashboard
-
-✔ Secure Checkout
-
-✔ Membership System
-
-✔ Responsive UI
-
----
-
-# ✨ Features
-
-<table>
-<tr>
-
-<td width="50%">
-
-## 🤖 AI Trip Planner
-
-Generate personalized itineraries
-
-• AI recommendations
-
-• Weather-aware planning
-
-• Budget estimation
-
-• Daily schedules
-
-</td>
-
-<td width="50%">
-
-<img src="screenshots/ai-planner.gif">
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-<img src="screenshots/search.gif">
-
-</td>
-
-<td>
-
-## 🔍 Smart Search
-
-- Hotels
-- Flights
-- Packages
-- Cars
-- AI Search
-
-</td>
-
-</tr>
-
-</table>
+### 🎨 8. Brand Identity & Design System (`moodboard.html`)
+- **Curated Color Tokens**: Brand Navy (`#003580`), Booking Blue (`#006CE4`), Genius Gold (`#FFB700`), AI Cyan (`#0EA5E9`), and Coral Pink (`#F43F5E`).
+- **Typography & Components**: Plus Jakarta Sans & Inter font hierarchy, outlined iconography, and card specimens.
 
 ---
 
-# 🖼 Screenshots
+## 📁 Repository File Structure
 
-<table>
-
-<tr>
-
-<td>
-
-Landing Page
-
-<img src="screenshots/home.png">
-
-</td>
-
-<td>
-
-Booking
-
-<img src="screenshots/booking.png">
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Checkout
-
-<img src="screenshots/checkout.png">
-
-</td>
-
-<td>
-
-Dashboard
-
-<img src="screenshots/dashboard.png">
-
-</td>
-
-</tr>
-
-</table>
+```
+wanderai-integrated/
+├── index.html         # Main Landing Page & Search Engine
+├── booking.html       # Explore Portal & Destination Search
+├── checkout.html      # Secure Checkout & Demo Payment Gateway
+├── dashboard.html     # User Travel Desk & Confirmed Trips
+├── wishlist.html      # Saved Wishlist Grid & Empty State UI
+├── pricing.html       # Membership Tiers & Annual Billing Toggle
+├── login.html         # Auth Sign In Portal
+├── signup.html        # Auth Registration Portal
+├── moodboard.html     # Brand Guide & Design System
+├── style.css          # Unified Global CSS Design Tokens & Components
+├── script.js         # Modular UI Controllers & Event Handlers
+├── data.js           # Central Data Layer & localStorage Persistence
+├── assets/           # Logos & UI Brand Assets
+└── images/           # Destination & Hero Photography
+```
 
 ---
 
-# 🛠 Tech Stack
+## 🛠️ Technology Stack
 
-<div align="center">
-
-HTML • CSS • JavaScript
-
-Flatpickr
-
-Lucide Icons
-
-Phosphor Icons
-
-OpenWeather API
-
-</div>
+- **Frontend Core**: HTML5, Vanilla JavaScript (ES6+), Vanilla CSS3 (CSS Variables, Flexbox/Grid, Glassmorphism).
+- **Iconography**: [Lucide Icons](https://lucide.dev/) & [Phosphor Icons](https://phosphoricons.com/).
+- **Date Picker**: [Flatpickr](https://flatpickr.js.org/).
+- **Live Weather API**: [OpenWeatherMap API](https://openweathermap.org/api) integration with fallback simulation.
 
 ---
 
-# 📂 Folder Structure
+## 🚀 How to Run Locally
 
-```text
-📦 WanderAI
- ┣ 📂 assets
- ┣ 📂 images
- ┣ 📜 index.html
- ┣ 📜 booking.html
- ┣ 📜 checkout.html
- ┣ 📜 dashboard.html
- ┣ 📜 wishlist.html
- ┣ 📜 pricing.html
- ┣ 📜 login.html
- ┣ 📜 signup.html
- ┣ 📜 moodboard.html
- ┣ 📜 style.css
- ┣ 📜 script.js
- ┗ 📜 data.js
+1. Clone or download this repository to your local machine.
+2. Open `index.html` directly in any modern web browser (Chrome, Edge, Firefox, Safari), or serve using VS Code **Live Server** extension:
+   ```bash
+   npx http-server .
+   ```
+3. Navigate through the portal:
+   - Search for stays or flights on `index.html`.
+   - Filter destinations on `booking.html`.
+   - Complete a test booking on `checkout.html` using the **Demo Payment Gateway**.
+   - View your confirmed trip in `dashboard.html`.
+
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information. Inspired by Booking.com, Kayak, MakeMyTrip, and Agoda design systems.
