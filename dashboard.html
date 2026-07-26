@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Desk & Dashboard — WanderAI</title>
+    <meta name="description" content="View your confirmed bookings, manage itineraries, and track AI plans on WanderAI.">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="site-body">
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i data-lucide="crown"></i> Genius Member Level 2</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="shield-check"></i> 100% Price Lock Active</span>
+            </div>
+            <div class="top-bar-right">
+                <!-- Currency Selector -->
+                <div class="top-utility-dropdown" id="currencyDropdown">
+                    <button class="top-utility-btn" id="currencyBtn">
+                        <span class="currency-symbol">$</span> USD <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="top-utility-menu" id="currencyMenu">
+                        <button class="utility-menu-item active" data-currency="USD" data-symbol="$">USD ($)</button>
+                        <button class="utility-menu-item" data-currency="EUR" data-symbol="€">EUR (€)</button>
+                    </div>
+                </div>
+
+                <a href="wishlist.html" class="top-utility-link wishlist-nav-link">
+                    <i data-lucide="heart"></i> Saved
+                    <span class="wishlist-badge-count" id="navWishlistCount">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DESKTOP NAVIGATION -->
+    <header class="main-header" id="desktopNav">
+        <div class="header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                    <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                </a>
+                <nav class="primary-service-tabs">
+                    <a href="booking.html" class="service-tab">
+                        <i data-lucide="building-2"></i> <span>Stays</span>
+                    </a>
+                    <a href="booking.html#flights" class="service-tab">
+                        <i data-lucide="plane"></i> <span>Flights</span>
+                    </a>
+                    <a href="index.html#ai-playground" class="service-tab highlight-tab">
+                        <i data-lucide="sparkles"></i> <span>AI Planner</span>
+                    </a>
+                    <a href="dashboard.html" class="service-tab active">
+                        <i data-lucide="layout-dashboard"></i> <span>My Desk</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="header-right-actions">
+                <a href="pricing.html" class="nav-secondary-link">Pricing</a>
+
+                <!-- Notifications Bell -->
+                <div class="notif-dropdown-wrapper" id="navNotifWrapper">
+                    <button class="icon-btn header-icon-btn" id="navNotifBtn" aria-label="Notifications">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge" id="navNotifBadge" style="display: none;">0</span>
+                    </button>
+                    <div class="notif-menu" id="navNotifMenu">
+                        <div class="notif-header">
+                            <h4>Notifications</h4>
+                            <button class="notif-clear-btn" id="notifClearBtn">Clear All</button>
+                        </div>
+                        <div class="notif-list" id="notifList"></div>
+                    </div>
+                </div>
+
+                <div id="navUserArea" class="flex-center">
+                    <a href="signup.html" class="btn-primary btn-sm" id="signUpBtn">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Slide-Over -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-slide-menu" id="mobileSlideMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+            </a>
+            <button class="icon-btn mobile-close" id="mobileClose" aria-label="Close Menu"><i data-lucide="x"></i></button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link"><i data-lucide="home"></i> Home</a>
+            <a href="booking.html" class="mobile-menu-link"><i data-lucide="building-2"></i> Stays & Hotels</a>
+            <a href="dashboard.html" class="mobile-menu-link active"><i data-lucide="layout-dashboard"></i> My Dashboard</a>
+            <a href="wishlist.html" class="mobile-menu-link"><i data-lucide="heart"></i> Saved Wishlist</a>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-item" data-tab="home">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="home"></i></div>
+            <span>Home</span>
+        </a>
+        <a href="booking.html" class="mobile-nav-item" data-tab="explore">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="building-2"></i></div>
+            <span>Stays</span>
+        </a>
+        <a href="wishlist.html" class="mobile-nav-item" data-tab="wishlist">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="heart"></i></div>
+            <span>Saved</span>
+        </a>
+        <a href="dashboard.html" class="mobile-nav-item active" data-tab="account">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="user"></i></div>
+            <span>Dashboard</span>
+        </a>
+    </nav>
+
+    <!-- DASHBOARD MAIN CONTENT -->
+    <div class="page-transition">
+        <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+            <div class="dashboard-grid">
+                <!-- Sidebar Menu -->
+                <aside class="dashboard-sidebar-menu">
+                    <a href="#" class="dashboard-sidebar-link active" id="tabTripsBtn">
+                        <i data-lucide="briefcase"></i> My Confirmed Trips
+                    </a>
+                    <a href="wishlist.html" class="dashboard-sidebar-link">
+                        <i data-lucide="heart"></i> Saved Wishlist
+                    </a>
+                    <a href="#" class="dashboard-sidebar-link" id="tabSettingsBtn">
+                        <i data-lucide="settings"></i> Account Settings
+                    </a>
+                    <a href="pricing.html" class="dashboard-sidebar-link">
+                        <i data-lucide="credit-card"></i> Manage Subscription
+                    </a>
+                    <a href="#" class="dashboard-sidebar-link" id="dashLogoutBtn" style="color: var(--accent); margin-top: 32px;">
+                        <i data-lucide="log-out"></i> Log Out Session
+                    </a>
+                </aside>
+
+                <!-- Main Panel -->
+                <main class="dashboard-main-content">
+                    <!-- Welcome Card Banner -->
+                    <div class="dashboard-welcome-banner">
+                        <div class="dash-welcome-text">
+                            <h2 id="dashWelcomeName">Hello, Explorer</h2>
+                            <p>Manage your upcoming trips, download itinerary PDFs, and track AI weather updates.</p>
+                        </div>
+                        <div class="dash-plan-badge-box">
+                            <span class="plan-label">ACTIVE MEMBERSHIP</span>
+                            <strong id="dashUserPlan">Explorer Plan</strong>
+                        </div>
+                    </div>
+
+                    <!-- Trips Tab View -->
+                    <div id="tabTripsView">
+                        <h3 class="dash-section-heading"><i data-lucide="plane-takeoff" style="color:var(--brand-blue); margin-right:8px;"></i> Upcoming Trips & Bookings</h3>
+                        <div id="dashboardUpcomingTrips" class="dash-trips-container">
+                            <!-- Dynamic Trip Rows -->
+                        </div>
+
+                        <h3 class="dash-section-heading" style="margin-top: 40px;"><i data-lucide="history" style="color:var(--gray-500); margin-right:8px;"></i> Past Adventures</h3>
+                        <div id="dashboardPastTrips" class="dash-trips-container">
+                            <!-- Dynamic Past Trip Rows -->
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab View -->
+                    <div id="tabSettingsView" style="display: none;">
+                        <div class="checkout-card">
+                            <h3 class="checkout-section-title"><i data-lucide="user-check" style="color:var(--brand-blue); margin-right:8px;"></i> Profile Settings</h3>
+                            <form id="dashboardSettingsForm">
+                                <div class="input-group">
+                                    <label for="settingsName" class="field-label">Full Name</label>
+                                    <input type="text" id="settingsName" placeholder="Preferred Name" class="search-input-field">
+                                </div>
+                                <div class="input-group" style="margin-top: 16px;">
+                                    <label for="settingsEmail" class="field-label">Email Address (Locked)</label>
+                                    <input type="email" id="settingsEmail" placeholder="Email" class="search-input-field" disabled>
+                                </div>
+                                <button type="submit" class="hero-submit-btn" style="width:200px; margin-top: 24px;">Save Settings</button>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 WanderAI Technologies Inc. All rights reserved. User Dashboard & Travel Desk.
+                </div>
+                <div class="payment-badges">
+                    <span class="pay-badge">VISA</span>
+                    <span class="pay-badge">Mastercard</span>
+                    <span class="pay-badge">AMEX</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

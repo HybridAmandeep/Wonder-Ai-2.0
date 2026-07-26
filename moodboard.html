@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Guide & Design System — WanderAI</title>
+    <meta name="description" content="Explore the WanderAI brand identity, unified design system, color palette, and UI components.">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="site-body">
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i data-lucide="palette"></i> WanderAI Design System 3.0</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="index.html" class="top-utility-link">Back to Main Portal</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DESKTOP NAVIGATION -->
+    <header class="main-header" id="desktopNav">
+        <div class="header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                    <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                </a>
+            </div>
+            <div class="header-right-actions">
+                <a href="index.html" class="nav-secondary-link">Home</a>
+                <a href="booking.html" class="nav-secondary-link">Explore</a>
+                <a href="pricing.html" class="nav-secondary-link">Pricing</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOODBOARD CONTENT -->
+    <div class="moodboard-page page-transition">
+        <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+
+            <!-- Header Section -->
+            <header class="mb-header" style="text-align:center; margin-bottom:48px;">
+                <div class="mb-logo" style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px;">
+                    <img src="assets/logo.png" alt="WanderAI" style="width: 52px; height: 52px; border-radius: 50%;">
+                    <span style="font-weight: 900; font-size: 2.2rem; color: var(--gray-900);">WanderAI</span>
+                </div>
+                <h1 style="font-size:2.2rem; font-weight:800; color:var(--gray-900);">Brand Identity & Design System</h1>
+                <p class="subtitle" style="color:var(--gray-600); font-size:1.1rem; margin-top:6px;">Unified Booking.com, Kayak & Agoda Inspired UI Language</p>
+            </header>
+
+            <main>
+                <!-- Colors Section -->
+                <section class="mb-section" style="margin-bottom:48px;">
+                    <div class="section-header">
+                        <h2>Brand Color Tokens</h2>
+                        <p>Curated palette evoking trust, luxury stays, member perks, and AI intelligence.</p>
+                    </div>
+                    <div class="color-grid">
+                        <div class="color-card" data-hex="#003580">
+                            <div class="color-swatch" style="background-color: #003580;"></div>
+                            <div class="color-info"><span class="color-name">Brand Navy</span><span class="color-hex">#003580</span></div>
+                        </div>
+                        <div class="color-card" data-hex="#006CE4">
+                            <div class="color-swatch" style="background-color: #006CE4;"></div>
+                            <div class="color-info"><span class="color-name">Booking Blue</span><span class="color-hex">#006CE4</span></div>
+                        </div>
+                        <div class="color-card" data-hex="#FFB700">
+                            <div class="color-swatch" style="background-color: #FFB700;"></div>
+                            <div class="color-info"><span class="color-name">Genius Gold</span><span class="color-hex">#FFB700</span></div>
+                        </div>
+                        <div class="color-card" data-hex="#0EA5E9">
+                            <div class="color-swatch" style="background-color: #0EA5E9;"></div>
+                            <div class="color-info"><span class="color-name">AI Cyan Glow</span><span class="color-hex">#0EA5E9</span></div>
+                        </div>
+                        <div class="color-card" data-hex="#F43F5E">
+                            <div class="color-swatch" style="background-color: #F43F5E;"></div>
+                            <div class="color-info"><span class="color-name">Accent Rose</span><span class="color-hex">#F43F5E</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Typography Section -->
+                <section class="mb-section" style="margin-bottom:48px;">
+                    <div class="section-header">
+                        <h2>Typography Hierarchy</h2>
+                        <p>Inter & Plus Jakarta Sans fonts for high readability across search widgets and destination cards.</p>
+                    </div>
+                    <div class="type-grid">
+                        <div class="type-card font-heading">
+                            <div class="type-header">
+                                <span class="type-name">Plus Jakarta Sans</span>
+                                <span class="type-usage">Headings & Portal Titles</span>
+                            </div>
+                            <div class="type-example">
+                                <h1>Find your next stay, flight & AI itinerary</h1>
+                            </div>
+                        </div>
+                        <div class="type-card font-body">
+                            <div class="type-header">
+                                <span class="type-name">Inter</span>
+                                <span class="type-usage">Form Inputs, Body & Filters</span>
+                            </div>
+                            <div class="type-example">
+                                <p>Search 2,000,000+ luxury stays, beachfront villas, and AI-curated trips with lowest price guarantee.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 WanderAI Technologies Inc. Design System & Brand Guide.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

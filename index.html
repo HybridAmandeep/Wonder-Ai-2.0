@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderAI — Book Hotels, Flights & AI Itineraries</title>
+    <meta name="description"
+        content="Book hotels, flights, packages and AI-curated travel itineraries with lowest price guarantee on WanderAI.">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body class="site-body">
+
+    <!-- TOP UTILITY BAR (Booking.com / Agoda style) -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i data-lucide="shield-check"></i> Best Price Guarantee</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="sparkles"></i> AI-Powered Travel Matching</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="headphones"></i> 24/7 AI Support</span>
+            </div>
+            <div class="top-bar-right">
+                <!-- Currency Selector -->
+                <div class="top-utility-dropdown" id="currencyDropdown">
+                    <button class="top-utility-btn" id="currencyBtn">
+                        <span class="currency-symbol">$</span> USD <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="top-utility-menu" id="currencyMenu">
+                        <button class="utility-menu-item active" data-currency="USD" data-symbol="$">USD ($) - US Dollar</button>
+                        <button class="utility-menu-item" data-currency="EUR" data-symbol="€">EUR (€) - Euro</button>
+                        <button class="utility-menu-item" data-currency="GBP" data-symbol="£">GBP (£) - British Pound</button>
+                        <button class="utility-menu-item" data-currency="INR" data-symbol="₹">INR (₹) - Indian Rupee</button>
+                        <button class="utility-menu-item" data-currency="AUD" data-symbol="A$">AUD (A$) - Australian Dollar</button>
+                    </div>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="top-utility-dropdown" id="langDropdown">
+                    <button class="top-utility-btn" id="langBtn">
+                        <span class="flag-icon">🇺🇸</span> EN <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="top-utility-menu" id="langMenu">
+                        <button class="utility-menu-item active"><span class="flag-icon">🇺🇸</span> English (US)</button>
+                        <button class="utility-menu-item"><span class="flag-icon">🇬🇧</span> English (UK)</button>
+                        <button class="utility-menu-item"><span class="flag-icon">🇪🇸</span> Español</button>
+                        <button class="utility-menu-item"><span class="flag-icon">🇫🇷</span> Français</button>
+                        <button class="utility-menu-item"><span class="flag-icon">🇩🇪</span> Deutsch</button>
+                    </div>
+                </div>
+
+                <a href="booking.html" class="top-utility-link">List Your Property</a>
+                <a href="wishlist.html" class="top-utility-link wishlist-nav-link">
+                    <i data-lucide="heart"></i> Saved
+                    <span class="wishlist-badge-count" id="navWishlistCount">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DESKTOP NAVIGATION -->
+    <header class="main-header" id="desktopNav">
+        <div class="header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                    <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                </a>
+
+                <!-- Primary Booking Services Navigation Tabs -->
+                <nav class="primary-service-tabs">
+                    <a href="index.html#search-hero" class="service-tab active" data-tab-target="stays">
+                        <i data-lucide="building-2"></i> <span>Stays</span>
+                    </a>
+                    <a href="index.html#search-hero" class="service-tab" data-tab-target="flights">
+                        <i data-lucide="plane"></i> <span>Flights</span>
+                    </a>
+                    <a href="index.html#ai-playground" class="service-tab highlight-tab" data-tab-target="ai">
+                        <i data-lucide="sparkles"></i> <span>AI Planner</span>
+                    </a>
+                    <a href="booking.html" class="service-tab" data-tab-target="packages">
+                        <i data-lucide="palmtree"></i> <span>Packages</span>
+                    </a>
+                    <a href="booking.html" class="service-tab" data-tab-target="cars">
+                        <i data-lucide="car"></i> <span>Car Rentals</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="header-right-actions">
+                <a href="pricing.html" class="nav-secondary-link">Pricing</a>
+                <a href="moodboard.html" class="nav-secondary-link">Brand</a>
+
+                <!-- Notifications Bell -->
+                <div class="notif-dropdown-wrapper" id="navNotifWrapper">
+                    <button class="icon-btn header-icon-btn" id="navNotifBtn" aria-label="Notifications">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge" id="navNotifBadge" style="display: none;">0</span>
+                    </button>
+                    <div class="notif-menu" id="navNotifMenu">
+                        <div class="notif-header">
+                            <h4>Notifications</h4>
+                            <button class="notif-clear-btn" id="notifClearBtn">Clear All</button>
+                        </div>
+                        <div class="notif-list" id="notifList"></div>
+                    </div>
+                </div>
+
+                <div id="navUserArea" class="flex-center">
+                    <a href="login.html" class="btn-secondary btn-sm" id="signInBtn">Sign In</a>
+                    <a href="signup.html" class="btn-primary btn-sm" id="signUpBtn">
+                        Register
+                    </a>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Slide-Over Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-slide-menu" id="mobileSlideMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+            </a>
+            <button class="icon-btn mobile-close" id="mobileClose" aria-label="Close Menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link active"><i data-lucide="home"></i> Home</a>
+            <a href="booking.html" class="mobile-menu-link"><i data-lucide="building-2"></i> Stays & Hotels</a>
+            <a href="booking.html#flights" class="mobile-menu-link"><i data-lucide="plane"></i> Flights</a>
+            <a href="index.html#ai-playground" class="mobile-menu-link"><i data-lucide="sparkles"></i> AI Itinerary Planner</a>
+            <a href="wishlist.html" class="mobile-menu-link"><i data-lucide="heart"></i> Saved Wishlist</a>
+            <a href="dashboard.html" class="mobile-menu-link"><i data-lucide="layout-dashboard"></i> My Dashboard</a>
+            <a href="pricing.html" class="mobile-menu-link"><i data-lucide="credit-card"></i> Pricing Plans</a>
+        </div>
+        <div class="mobile-menu-footer">
+            <a href="signup.html" class="btn-primary btn-full">
+                Register Free Account
+            </a>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-item active" data-tab="home">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="home"></i></div>
+            <span>Home</span>
+        </a>
+        <a href="booking.html" class="mobile-nav-item" data-tab="explore">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="building-2"></i></div>
+            <span>Stays</span>
+        </a>
+        <a href="index.html#ai-playground" class="mobile-nav-item" data-tab="ai">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="sparkles"></i></div>
+            <span>AI Plan</span>
+        </a>
+        <a href="wishlist.html" class="mobile-nav-item" data-tab="wishlist">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="heart"></i></div>
+            <span>Saved</span>
+        </a>
+        <a href="signup.html" class="mobile-nav-item" data-tab="account">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="user"></i></div>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <!-- HERO SEARCH ENGINE SECTION (MakeMyTrip + Booking.com + Kayak inspired) -->
+    <section class="hero-booking-section" id="search-hero">
+        <div class="hero-bg-wrapper">
+            <img src="images/Santorini, Greece.png" alt="Travel Background" class="hero-bg-img" id="heroBgImage">
+            <div class="hero-bg-overlay"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-header-text">
+                <span class="hero-sparkle-pill">
+                    <i data-lucide="sparkles"></i> AI-Powered Travel Engine 3.0
+                </span>
+                <h1 class="hero-main-title">Find your next stay, flight & <span class="title-highlight">AI-crafted itinerary</span></h1>
+                <p class="hero-sub-title">Search 2,000,000+ hotels, flights, and instant AI itineraries with lowest price guarantee.</p>
+            </div>
+
+            <!-- MULTI-TAB SEARCH ENGINE WIDGET -->
+            <div class="search-widget-card" id="mainSearchWidget">
+                <!-- Search Type Tabs -->
+                <div class="widget-tab-header">
+                    <button class="widget-tab-btn active" data-search-type="stays">
+                        <i data-lucide="building-2"></i> Stays & Hotels
+                    </button>
+                    <button class="widget-tab-btn" data-search-type="flights">
+                        <i data-lucide="plane"></i> Flights
+                    </button>
+                    <button class="widget-tab-btn tab-ai-accent" data-search-type="ai">
+                        <i data-lucide="sparkles"></i> AI Trip Planner
+                    </button>
+                    <button class="widget-tab-btn" data-search-type="packages">
+                        <i data-lucide="palmtree"></i> Packages & Combo
+                    </button>
+                </div>
+
+                <!-- SEARCH PANELS -->
+                <div class="widget-tab-content">
+                    <!-- 1. STAYS SEARCH PANEL -->
+                    <div class="search-panel active" id="panel-stays">
+                        <form class="search-form-grid stays-form" id="staysForm" onsubmit="event.preventDefault(); window.location.href='booking.html';">
+                            <!-- Where / Destination -->
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="map-pin"></i> Destination / Property</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" id="stayDestinationInput" placeholder="Where are you going? (e.g. Kyoto, Santorini, Bali)" class="search-input-field" autocomplete="off">
+                                    <div class="autocomplete-dropdown" id="stayAutocompleteDropdown"></div>
+                                </div>
+                            </div>
+
+                            <!-- Check-in & Check-out Dates -->
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="calendar"></i> Check-in — Check-out</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" id="stayDatesInput" placeholder="Select dates" class="search-input-field" readonly>
+                                </div>
+                            </div>
+
+                            <!-- Guests & Rooms -->
+                            <div class="search-field-group relative-pos">
+                                <label class="field-label"><i data-lucide="users"></i> Guests & Rooms</label>
+                                <div class="field-input-wrap" id="guestsTriggerBtn">
+                                    <input type="text" id="guestsDisplayInput" value="2 Adults · 0 Children · 1 Room" class="search-input-field cursor-pointer" readonly>
+                                    <i data-lucide="chevron-down" class="input-chevron"></i>
+                                </div>
+
+                                <!-- Guest Popover Modal -->
+                                <div class="guests-popover" id="guestsPopover">
+                                    <div class="guest-counter-row">
+                                        <div>
+                                            <div class="counter-label">Adults</div>
+                                            <div class="counter-sub">Ages 18 or above</div>
+                                        </div>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" id="adultMinus">-</button>
+                                            <span class="counter-value" id="adultCount">2</span>
+                                            <button type="button" class="counter-btn" id="adultPlus">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="guest-counter-row">
+                                        <div>
+                                            <div class="counter-label">Children</div>
+                                            <div class="counter-sub">Ages 0 to 17</div>
+                                        </div>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" id="childMinus">-</button>
+                                            <span class="counter-value" id="childCount">0</span>
+                                            <button type="button" class="counter-btn" id="childPlus">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="guest-counter-row">
+                                        <div>
+                                            <div class="counter-label">Rooms</div>
+                                            <div class="counter-sub">Single or multi-room</div>
+                                        </div>
+                                        <div class="counter-controls">
+                                            <button type="button" class="counter-btn" id="roomMinus">-</button>
+                                            <span class="counter-value" id="roomCount">1</span>
+                                            <button type="button" class="counter-btn" id="roomPlus">+</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn-primary btn-sm btn-full" id="guestsDoneBtn">Apply Selection</button>
+                                </div>
+                            </div>
+
+                            <!-- Search Button -->
+                            <div class="search-field-group search-btn-wrap">
+                                <button type="submit" class="hero-submit-btn">
+                                    <i data-lucide="search"></i> <span>Search Stays</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 2. FLIGHTS SEARCH PANEL -->
+                    <div class="search-panel" id="panel-flights">
+                        <div class="flight-trip-options">
+                            <label class="radio-option"><input type="radio" name="flightTripType" value="round" checked> Round-trip</label>
+                            <label class="radio-option"><input type="radio" name="flightTripType" value="oneway"> One-way</label>
+                            <label class="radio-option"><input type="radio" name="flightTripType" value="multicity"> Multi-city</label>
+                        </div>
+                        <form class="search-form-grid flights-form" onsubmit="event.preventDefault(); window.location.href='booking.html';">
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="plane-departure"></i> From</label>
+                                <input type="text" id="flightFromInput" placeholder="Origin City or Airport" class="search-input-field" value="New York (JFK)">
+                            </div>
+
+                            <button type="button" class="swap-cities-btn" id="swapFlightBtn" title="Swap Origin and Destination">
+                                <i data-lucide="arrow-left-right"></i>
+                            </button>
+
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="plane-landing"></i> To</label>
+                                <input type="text" id="flightToInput" placeholder="Destination City or Airport" class="search-input-field" value="Tokyo (HND)">
+                            </div>
+
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="calendar"></i> Departure — Return</label>
+                                <input type="text" id="flightDatesInput" placeholder="Select dates" class="search-input-field">
+                            </div>
+
+                            <div class="search-field-group search-btn-wrap">
+                                <button type="submit" class="hero-submit-btn">
+                                    <i data-lucide="search"></i> <span>Search Flights</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 3. AI TRIP PLANNER SEARCH PANEL -->
+                    <div class="search-panel" id="panel-ai">
+                        <form class="search-form-grid ai-form" onsubmit="event.preventDefault(); document.getElementById('ai-playground').scrollIntoView({behavior:'smooth'});">
+                            <div class="search-field-group span-2">
+                                <label class="field-label"><i data-lucide="sparkles"></i> Tell AI your dream trip prompt</label>
+                                <input type="text" id="heroAiPromptInput" placeholder="e.g., 5 days romantic food & culture trip in Kyoto under $2000" class="search-input-field">
+                            </div>
+
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="clock"></i> Duration</label>
+                                <select class="search-input-field select-field">
+                                    <option value="3">3 Days Weekend</option>
+                                    <option value="5" selected>5 Days Getaway</option>
+                                    <option value="7">7 Days Vacation</option>
+                                    <option value="10">10+ Days Expedition</option>
+                                </select>
+                            </div>
+
+                            <div class="search-field-group search-btn-wrap">
+                                <button type="submit" class="hero-submit-btn ai-gradient-btn">
+                                    <i data-lucide="sparkles"></i> <span>Generate AI Itinerary</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 4. PACKAGES SEARCH PANEL -->
+                    <div class="search-panel" id="panel-packages">
+                        <form class="search-form-grid packages-form" onsubmit="event.preventDefault(); window.location.href='booking.html';">
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="map-pin"></i> From City</label>
+                                <input type="text" placeholder="Your Departure City" class="search-input-field" value="London (LHR)">
+                            </div>
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="palmtree"></i> Package Destination</label>
+                                <input type="text" placeholder="e.g. Maldives, Bali, Swiss Alps" class="search-input-field">
+                            </div>
+                            <div class="search-field-group">
+                                <label class="field-label"><i data-lucide="calendar"></i> Travel Month</label>
+                                <select class="search-input-field select-field">
+                                    <option>August 2026</option>
+                                    <option>September 2026</option>
+                                    <option>October 2026</option>
+                                    <option>November 2026</option>
+                                </select>
+                            </div>
+                            <div class="search-field-group search-btn-wrap">
+                                <button type="submit" class="hero-submit-btn">
+                                    <i data-lucide="search"></i> <span>Search Packages</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Quick Filter Chips -->
+                <div class="widget-quick-filters">
+                    <span class="quick-filter-label">Popular Searches:</span>
+                    <button class="filter-chip" onclick="window.location.href='booking.html?cat=beach'"><i data-lucide="sun"></i> Beach Escapes</button>
+                    <button class="filter-chip" onclick="window.location.href='booking.html?cat=adventure'"><i data-lucide="trees"></i> Mountain & Ski</button>
+                    <button class="filter-chip" onclick="window.location.href='booking.html?cat=culture'"><i data-lucide="landmark"></i> Cultural Gems</button>
+                    <button class="filter-chip" onclick="window.location.href='booking.html?deal=genius'"><i data-lucide="tag"></i> Genius Deals</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GENIUS MEMBER DISCOUNT BANNER (Booking.com & Agoda style) -->
+    <section class="genius-banner-section">
+        <div class="container">
+            <div class="genius-card">
+                <div class="genius-left">
+                    <div class="genius-badge"><i data-lucide="crown"></i> WanderAI Genius Member Perks</div>
+                    <h2>Save 10% to 20% on stays worldwide</h2>
+                    <p>Unlock instant discounts, free room upgrades, and AI travel concierge assistance when you sign in.</p>
+                </div>
+                <div class="genius-right">
+                    <a href="signup.html" class="btn-primary btn-lg">Sign In or Create Account</a>
+                    <button class="btn-secondary btn-lg" onclick="navigator.clipboard.writeText('WANDERAI20'); alert('Promo code WANDERAI20 copied to clipboard!');">
+                        <i data-lucide="copy"></i> Code: WANDERAI20
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRENDING DESTINATIONS SECTION (Agoda & Kayak style) -->
+    <section class="trending-destinations-section" id="destinations">
+        <div class="container">
+            <div class="section-header-flex">
+                <div>
+                    <span class="section-tag-pill"><i data-lucide="trending-up"></i> Top Picked Escapes</span>
+                    <h2 class="section-main-heading">Trending Destinations This Season</h2>
+                    <p class="section-sub-heading">Explore top-rated places loved by AI planners & millions of global travelers.</p>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="category-filter-pills" id="destinationCategoryTabs">
+                    <button class="cat-pill active" data-cat="all">All Places</button>
+                    <button class="cat-pill" data-cat="beach">🏖️ Beaches</button>
+                    <button class="cat-pill" data-cat="culture">🏛️ Culture</button>
+                    <button class="cat-pill" data-cat="adventure">🏔️ Adventure</button>
+                    <button class="cat-pill" data-cat="nature">🌿 Nature</button>
+                </div>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="destinations-portal-grid" id="destinationsContainer">
+                <!-- Dynamically rendered via script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE AI ITINERARY PLAYGROUND SECTION (WanderAI Differentiator) -->
+    <section class="ai-playground-section" id="ai-playground">
+        <div class="container">
+            <div class="section-header center-text">
+                <span class="section-tag-pill spark-pill"><i data-lucide="sparkles"></i> AI Itinerary Engine</span>
+                <h2 class="section-main-heading">Experience AI-Generated Itineraries Live</h2>
+                <p class="section-sub-heading">Click a featured travel prompt below to inspect the day-by-day itinerary generated instantly by WanderAI.</p>
+            </div>
+
+            <!-- Interactive Prompt Pills Selector -->
+            <div class="ai-prompt-pills-bar" id="aiPromptPills">
+                <button class="prompt-pill active" data-itinerary-id="kyoto-7d">
+                    <i data-lucide="sparkles"></i> 🌸 7 Days Kyoto Temple & Culinary Discovery
+                </button>
+                <button class="prompt-pill" data-itinerary-id="maldives-5d">
+                    <i data-lucide="sparkles"></i> 🏝️ 5 Days Maldives Overwater Luxury
+                </button>
+                <button class="prompt-pill" data-itinerary-id="swiss-6d">
+                    <i data-lucide="sparkles"></i> 🏔️ 6 Days Swiss Alps Glacier & Hiking
+                </button>
+                <button class="prompt-pill" data-itinerary-id="santorini-5d">
+                    <i data-lucide="sparkles"></i> 🌅 5 Days Santorini Sunset Escape
+                </button>
+            </div>
+
+            <!-- LIVE PREVIEW DISPLAY CARD -->
+            <div class="ai-preview-container" id="aiPreviewCard">
+                <!-- Content generated dynamically by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- BROWSE BY PROPERTY TYPE (Booking.com inspired) -->
+    <section class="property-types-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag-pill"><i data-lucide="building"></i> Tailored Accommodation</span>
+                <h2 class="section-main-heading">Browse by Property Type</h2>
+                <p class="section-sub-heading">From beachfront villas to high-altitude mountain chalets.</p>
+            </div>
+
+            <div class="property-types-grid" id="propertyTypesGrid">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOTIONS & EXCLUSIVE DEALS CAROUSEL (MakeMyTrip inspired) -->
+    <section class="offers-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag-pill"><i data-lucide="percent"></i> Exclusive Deals</span>
+                <h2 class="section-main-heading">Special Offers & Discount Coupons</h2>
+                <p class="section-sub-heading">Claim verified discount codes to save extra on your next booking.</p>
+            </div>
+
+            <div class="offers-grid" id="offersGrid">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- VERIFIED TRAVELER REVIEWS & SOCIAL PROOF (Agoda & Kayak inspired) -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header center-text">
+                <span class="section-tag-pill"><i data-lucide="star"></i> Global Community</span>
+                <h2 class="section-main-heading">Loved by 500,000+ Explorers</h2>
+                <p class="section-sub-heading">Here is what travelers say about planning & booking with WanderAI.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">M</div>
+                        <div>
+                            <div class="reviewer-name">Maya Lin</div>
+                            <div class="reviewer-sub"><i data-lucide="check-circle" class="verified-icon"></i> Verified Traveler · Kyoto Trip</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="review-text">"WanderAI saved us over 15 hours of trip research. The day-by-day Kyoto itinerary was flawlessly timed for tea ceremonies and temple walks!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar avatar-blue">N</div>
+                        <div>
+                            <div class="reviewer-name">Nadia & Alex</div>
+                            <div class="reviewer-sub"><i data-lucide="check-circle" class="verified-icon"></i> Verified Traveler · Maldives Honeymoon</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="review-text">"Got an overwater villa deal at 20% less than other portals! Plus, the AI concierge answered all our local island transfer questions in seconds."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar avatar-green">O</div>
+                        <div>
+                            <div class="reviewer-name">Owen Vance</div>
+                            <div class="reviewer-sub"><i data-lucide="check-circle" class="verified-icon"></i> Verified Traveler · Swiss Alps Tour</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="review-text">"The weather integration and scenic train route suggestions were spot on. Best booking experience I've had in years."</p>
+                </div>
+            </div>
+
+            <!-- Trust Stats Bar -->
+            <div class="trust-stats-bar">
+                <div class="stat-item">
+                    <div class="stat-num">1.2M+</div>
+                    <div class="stat-desc">Itineraries Generated</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-num">4.9 / 5</div>
+                    <div class="stat-desc">Average Rating</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-num">150+</div>
+                    <div class="stat-desc">Countries Covered</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-num">$3.4M+</div>
+                    <div class="stat-desc">Traveler Savings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE WANDERAI SECTION -->
+    <section class="why-us-section">
+        <div class="container">
+            <div class="section-header center-text">
+                <span class="section-tag-pill"><i data-lucide="shield"></i> The WanderAI Advantage</span>
+                <h2 class="section-main-heading">Why Book & Plan With Us?</h2>
+                <p class="section-sub-heading">Modern technology meeting seamless travel experiences.</p>
+            </div>
+
+            <div class="why-us-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="sparkles"></i></div>
+                    <h3>AI Smart Matching</h3>
+                    <p>Our neural travel engine matches destinations, hotels, and activities precisely to your travel vibe and budget.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="dollar-sign"></i></div>
+                    <h3>Best Price Guarantee</h3>
+                    <p>We continuously check thousands of suppliers to ensure you get the guaranteed lowest rates on stays and packages.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="calendar-x"></i></div>
+                    <h3>Flexible Cancellations</h3>
+                    <p>Enjoy free cancellation on 85%+ of hotels and stays so you can book with total peace of mind.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i data-lucide="bot"></i></div>
+                    <h3>24/7 AI Concierge</h3>
+                    <p>Instant trip updates, weather alerts, and localized restaurant recommendations right in your pocket.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Industry standard Booking/Kayak/Agoda style) -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Newsletter Banner -->
+            <div class="footer-newsletter-card">
+                <div class="newsletter-text">
+                    <h3>Get Secret Travel Deals & AI Recommendations</h3>
+                    <p>Subscribe to receive up to 30% off secret member rates directly to your inbox.</p>
+                </div>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to WanderAI deals!');">
+                    <input type="email" placeholder="Enter your email address" required class="newsletter-input">
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-main-grid">
+                <div class="footer-col-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/footer-logo.png" alt="WanderAI Logo" class="logo-img">
+                        <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                    </a>
+                    <p>AI-Powered Travel Booking & Itinerary Generation Platform. Discover your next dream adventure in seconds.</p>
+                    <div class="social-icons-row">
+                        <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Popular Destinations</h4>
+                    <a href="booking.html?id=kyoto">Kyoto, Japan</a>
+                    <a href="booking.html?id=santorini">Santorini, Greece</a>
+                    <a href="booking.html?id=maldives">Maldives Islands</a>
+                    <a href="booking.html?id=swiss-alps">Swiss Alps</a>
+                    <a href="booking.html?id=bali">Bali, Indonesia</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Property Types</h4>
+                    <a href="booking.html">Luxury Hotels</a>
+                    <a href="booking.html">Beach Villas</a>
+                    <a href="booking.html">City Apartments</a>
+                    <a href="booking.html">Mountain Chalets</a>
+                    <a href="booking.html">Glamping Domes</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>WanderAI Features</h4>
+                    <a href="index.html#ai-playground">AI Itinerary Generator</a>
+                    <a href="pricing.html">AI Concierge Subscription</a>
+                    <a href="booking.html">Flight + Hotel Combos</a>
+                    <a href="moodboard.html">Design & Brand System</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company & Support</h4>
+                    <a href="pricing.html">About Us</a>
+                    <a href="#">Help Center / FAQ</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Partner With Us</a>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 WanderAI Technologies Inc. All rights reserved. Inspired by Booking.com, Kayak, MakeMyTrip & Agoda.
+                </div>
+                <div class="payment-badges">
+                    <span class="pay-badge">VISA</span>
+                    <span class="pay-badge">Mastercard</span>
+                    <span class="pay-badge">AMEX</span>
+                    <span class="pay-badge">Apple Pay</span>
+                    <span class="pay-badge">PayPal</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

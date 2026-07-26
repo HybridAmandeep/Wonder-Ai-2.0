@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout — WanderAI</title>
+    <meta name="description" content="Complete your booking securely with WanderAI's AI-assisted checkout engine.">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="site-body">
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i data-lucide="shield-check"></i> SSL Encrypted Checkout</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="check-circle"></i> Instant Confirmation</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="headphones"></i> 24/7 Support</span>
+            </div>
+            <div class="top-bar-right">
+                <!-- Currency Selector -->
+                <div class="top-utility-dropdown" id="currencyDropdown">
+                    <button class="top-utility-btn" id="currencyBtn">
+                        <span class="currency-symbol">$</span> USD <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="top-utility-menu" id="currencyMenu">
+                        <button class="utility-menu-item active" data-currency="USD" data-symbol="$">USD ($) - US Dollar</button>
+                        <button class="utility-menu-item" data-currency="EUR" data-symbol="€">EUR (€) - Euro</button>
+                        <button class="utility-menu-item" data-currency="GBP" data-symbol="£">GBP (£) - British Pound</button>
+                    </div>
+                </div>
+
+                <a href="wishlist.html" class="top-utility-link wishlist-nav-link">
+                    <i data-lucide="heart"></i> Saved
+                    <span class="wishlist-badge-count" id="navWishlistCount">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DESKTOP NAVIGATION -->
+    <header class="main-header" id="desktopNav">
+        <div class="header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                    <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                </a>
+                <nav class="primary-service-tabs">
+                    <a href="booking.html" class="service-tab active">
+                        <i data-lucide="building-2"></i> <span>Stays</span>
+                    </a>
+                    <a href="booking.html#flights" class="service-tab">
+                        <i data-lucide="plane"></i> <span>Flights</span>
+                    </a>
+                    <a href="index.html#ai-playground" class="service-tab highlight-tab">
+                        <i data-lucide="sparkles"></i> <span>AI Planner</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="header-right-actions">
+                <div id="navUserArea" class="flex-center">
+                    <a href="signup.html" class="btn-primary btn-sm" id="signUpBtn">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CHECKOUT STEP PROGRESS BAR (MakeMyTrip / Booking.com style) -->
+    <div class="checkout-progress-banner">
+        <div class="container">
+            <div class="step-progress-row">
+                <div class="step-item completed">
+                    <span class="step-num">1</span>
+                    <span class="step-name">Select Destination</span>
+                </div>
+                <div class="step-line active"></div>
+                <div class="step-item active">
+                    <span class="step-num">2</span>
+                    <span class="step-name">Traveler & Billing</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item">
+                    <span class="step-num">3</span>
+                    <span class="step-name">Instant Payment</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN PAGE CONTENT -->
+    <div class="page-transition">
+        <div class="container" style="padding-top: 32px; padding-bottom: 80px;">
+            <div class="checkout-grid">
+                <!-- Left Side: Billing and Traveler Details Card -->
+                <div class="checkout-card">
+                    <h3 class="checkout-section-title"><i data-lucide="user" style="color:var(--brand-blue); margin-right:8px;"></i> Traveler & Billing Details</h3>
+                    
+                    <form id="checkoutPaymentForm" novalidate>
+                        <div class="input-group">
+                            <label for="billName" class="field-label">Full Name (As on Passport/ID)</label>
+                            <input type="text" id="billName" placeholder="Enter your full name" class="search-input-field" required>
+                            <div class="error-message" id="billName-error"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="billEmail" class="field-label">Email Address (For Booking Vouchers)</label>
+                            <input type="email" id="billEmail" placeholder="Enter your email address" class="search-input-field" required>
+                            <div class="error-message" id="billEmail-error"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="billPhone" class="field-label">Mobile Phone Number</label>
+                            <input type="tel" id="billPhone" placeholder="Enter your 10-digit mobile number" class="search-input-field" pattern="[0-9]{10}" required>
+                            <div class="error-message" id="billPhone-error"></div>
+                        </div>
+
+                        <!-- PROMO CODE BOX (MakeMyTrip Inspired) -->
+                        <div class="promo-apply-box">
+                            <label class="field-label"><i data-lucide="tag" style="color:var(--brand-yellow);"></i> Have a Coupon Code?</label>
+                            <div class="promo-input-flex">
+                                <input type="text" id="promoCodeInput" placeholder="e.g. WANDERAI20" class="search-input-field">
+                                <button type="button" class="btn-secondary" id="applyPromoBtn">Apply</button>
+                            </div>
+                            <div id="promoNotice" style="font-size:0.8rem; margin-top:6px; font-weight:700;"></div>
+                        </div>
+
+                        <button type="submit" class="hero-submit-btn" style="margin-top: 24px;" id="payBtn">
+                            <span class="btn-text"><i data-lucide="lock"></i> Proceed to Secure Payment</span>
+                            <span class="loader" style="display: none;"></span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Side: Trip Summary Card -->
+                <div class="checkout-card sticky-summary-card">
+                    <h3 class="checkout-section-title"><i data-lucide="briefcase" style="color:var(--brand-blue); margin-right:8px;"></i> Booking Summary</h3>
+                    
+                    <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+                        <img src="" alt="" id="summaryImg" style="width: 110px; height: 100px; object-fit: cover; border-radius: 12px; border: 1px solid var(--gray-200);">
+                        <div>
+                            <h4 id="summaryTitle" style="font-size: 1.25rem; font-weight: 800; color: var(--gray-900);">Destination</h4>
+                            <p id="summaryCountry" style="color: var(--gray-500); font-size: 0.9rem;">Country</p>
+                            <div style="margin-top: 8px; font-size: 0.85rem; color: var(--brand-blue); font-weight: 700;" id="summaryDuration">0 days</div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-summary-item">
+                        <span>Check-In:</span>
+                        <strong id="summaryStart">--</strong>
+                    </div>
+                    <div class="checkout-summary-item">
+                        <span>Check-Out:</span>
+                        <strong id="summaryEnd">--</strong>
+                    </div>
+                    <div class="checkout-summary-item" style="margin-bottom: 24px;">
+                        <span>Guests / Travelers:</span>
+                        <strong id="summaryGuests">1</strong>
+                    </div>
+
+                    <div class="checkout-summary-item">
+                        <span>Base Package Rate:</span>
+                        <span id="summaryBasePrice">$0</span>
+                    </div>
+                    <div class="checkout-summary-item">
+                        <span>Genius AI Discount:</span>
+                        <span id="summaryDiscount" style="color: var(--success); font-weight: 700;">-$0</span>
+                    </div>
+                    <div class="checkout-summary-item">
+                        <span>Taxes & Supplier Fees:</span>
+                        <span id="summaryTaxes">$0</span>
+                    </div>
+                    
+                    <div class="checkout-summary-item summary-total-row">
+                        <span>Total Price:</span>
+                        <span id="summaryTotal" style="color:var(--brand-blue);">$0</span>
+                    </div>
+
+                    <div class="guarantee-footer-note">
+                        <i data-lucide="shield-check" style="color:var(--success);"></i> Free Cancellation up to 48 hours before check-in.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DEMO PAYMENT GATEWAY MODAL -->
+    <div class="demo-payment-overlay" id="demoPaymentOverlay">
+        <div class="demo-payment-modal">
+            <div class="demo-payment-header">
+                <h3><i data-lucide="shield-check" style="color: var(--brand-blue); margin-right: 8px;"></i>WanderAI Gateway</h3>
+                <button class="demo-payment-close" id="demoPaymentClose"><i data-lucide="x"></i></button>
+            </div>
+            
+            <div class="demo-payment-tabs">
+                <button class="demo-payment-tab active" data-pay-method="upi">UPI / QR Code</button>
+                <button class="demo-payment-tab" data-pay-method="card">Debit / Credit Card</button>
+            </div>
+
+            <div class="demo-payment-body">
+                <!-- UPI Section -->
+                <div class="demo-payment-section active" id="demoPay-upi">
+                    <p style="font-size: 0.88rem; color: var(--gray-500); margin-bottom: 16px;">Pay instantly using Google Pay, PhonePe, or Paytm</p>
+                    <div class="input-group">
+                        <label class="field-label">Enter UPI ID / VPA</label>
+                        <input type="text" placeholder="example@upi" id="demoUpiId" class="search-input-field">
+                    </div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span style="color: var(--gray-400); font-size: 0.8rem; font-weight:700;">OR SCAN INSTANT QR CODE</span>
+                        <div style="width: 140px; height: 140px; background: var(--gray-50); margin: 12px auto; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--gray-300);">
+                            <i data-lucide="qr-code" style="width: 64px; height: 64px; color: var(--gray-400);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Section -->
+                <div class="demo-payment-section" id="demoPay-card">
+                    <p style="font-size: 0.88rem; color: var(--gray-500); margin-bottom: 16px;">Enter your debit or credit card details</p>
+                    <div class="input-group">
+                        <label class="field-label">Card Number</label>
+                        <input type="text" placeholder="4111 2222 3333 4444" id="demoCardNum" class="search-input-field">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top:12px;">
+                        <div class="input-group">
+                            <label class="field-label">Expiry (MM/YY)</label>
+                            <input type="text" placeholder="12/28" id="demoCardExp" class="search-input-field">
+                        </div>
+                        <div class="input-group">
+                            <label class="field-label">CVV Code</label>
+                            <input type="password" placeholder="123" id="demoCardCvv" class="search-input-field">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-payment-footer">
+                <button class="hero-submit-btn" id="demoPayConfirmBtn">
+                    <span class="btn-text">Confirm Payment <span id="demoPayTotalText">$0</span></span>
+                    <span class="loader" style="display: none;"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKING SUCCESS OVERLAY -->
+    <div class="booking-overlay" id="bookingOverlay"></div>
+    <div class="booking-success-toast" id="bookingSuccessToast">
+        <div class="toast-glow"></div>
+        <div class="toast-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path class="toast-check-path" d="M4 12.6L9.3 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="toast-body">
+            <span class="toast-title">Payment Successful!</span>
+            <span class="toast-subtitle">Your trip is confirmed. Redirecting to your dashboard...</span>
+        </div>
+        <div class="toast-progress-bar"><div class="toast-progress-fill"></div></div>
+    </div>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 WanderAI Technologies Inc. All rights reserved. Secure payment gateway.
+                </div>
+                <div class="payment-badges">
+                    <span class="pay-badge">VISA</span>
+                    <span class="pay-badge">Mastercard</span>
+                    <span class="pay-badge">AMEX</span>
+                    <span class="pay-badge">Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

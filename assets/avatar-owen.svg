@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Owen Brooks profile image</title>
+  <desc id="desc">Stylized circular profile image with a warm yellow background.</desc>
+  <rect width="120" height="120" rx="60" fill="#fff0cc"/>
+  <path d="M28 106c5-24 18-38 32-38s29 14 34 38" fill="#2d7be8"/>
+  <circle cx="60" cy="55" r="21" fill="#e8b58f"/>
+  <path d="M38 48c4-19 38-27 48 0-10-4-20-5-28-3-8 2-14 4-20 3z" fill="#6b4228"/>
+  <path d="M36 52c-1-15 8-29 24-30 17-1 29 12 25 31-8-12-36-11-49-1z" fill="#8f5b34"/>
+  <circle cx="52" cy="57" r="2.4" fill="#10212b"/>
+  <circle cx="68" cy="57" r="2.4" fill="#10212b"/>
+  <path d="M53 68c5 4 10 4 15 0" fill="none" stroke="#10212b" stroke-width="3" stroke-linecap="round"/>
+</svg>

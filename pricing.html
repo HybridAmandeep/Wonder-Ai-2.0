@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Membership Plans — WanderAI</title>
+    <meta name="description" content="Choose the perfect WanderAI plan for your travel style. Start free, upgrade when travel gets serious.">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="site-body">
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i data-lucide="shield-check"></i> Best Price Guarantee</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="sparkles"></i> AI Concierge Available 24/7</span>
+            </div>
+            <div class="top-bar-right">
+                <!-- Currency Selector -->
+                <div class="top-utility-dropdown" id="currencyDropdown">
+                    <button class="top-utility-btn" id="currencyBtn">
+                        <span class="currency-symbol">$</span> USD <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="top-utility-menu" id="currencyMenu">
+                        <button class="utility-menu-item active" data-currency="USD" data-symbol="$">USD ($)</button>
+                        <button class="utility-menu-item" data-currency="EUR" data-symbol="€">EUR (€)</button>
+                    </div>
+                </div>
+
+                <a href="wishlist.html" class="top-utility-link wishlist-nav-link">
+                    <i data-lucide="heart"></i> Saved
+                    <span class="wishlist-badge-count" id="navWishlistCount">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DESKTOP NAVIGATION -->
+    <header class="main-header" id="desktopNav">
+        <div class="header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                    <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                </a>
+                <nav class="primary-service-tabs">
+                    <a href="booking.html" class="service-tab">
+                        <i data-lucide="building-2"></i> <span>Stays</span>
+                    </a>
+                    <a href="booking.html#flights" class="service-tab">
+                        <i data-lucide="plane"></i> <span>Flights</span>
+                    </a>
+                    <a href="index.html#ai-playground" class="service-tab highlight-tab">
+                        <i data-lucide="sparkles"></i> <span>AI Planner</span>
+                    </a>
+                    <a href="pricing.html" class="service-tab active">
+                        <i data-lucide="credit-card"></i> <span>Pricing</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="header-right-actions">
+                <div id="navUserArea" class="flex-center">
+                    <a href="login.html" class="btn-secondary btn-sm" id="signInBtn">Sign In</a>
+                    <a href="signup.html" class="btn-primary btn-sm" id="signUpBtn">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PRICING SECTION -->
+    <div class="page-transition">
+        <section class="pricing-page-section" id="pricing" style="padding-top: 50px; padding-bottom: 80px;">
+            <div class="container">
+                <div class="section-header center-text">
+                    <span class="section-tag-pill"><i data-lucide="crown"></i> Membership Plans</span>
+                    <h1 class="section-main-heading">Start Free, Upgrade When Travel Gets Serious</h1>
+                    <p class="section-sub-heading">Every plan comes with AI-powered itineraries, real-time weather integration, and lowest price guarantee.</p>
+
+                    <!-- Billing Toggle Switch -->
+                    <div class="pricing-billing-toggle" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 12px; background:#FFF; padding:8px 20px; border-radius:999px; border:1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
+                        <span style="font-size:0.95rem; font-weight:700; color:var(--gray-800);">Monthly Billing</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="pricingAnnualToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span style="font-size:0.95rem; font-weight:700; color:var(--gray-800);">Annual Billing <span class="genius-badge" style="margin-left:6px; background:var(--brand-yellow); color:#000; font-weight:800;">SAVE 20%</span></span>
+                    </div>
+                </div>
+
+                <!-- Pricing Grid -->
+                <div class="pricing-portal-grid">
+                    <article class="portal-price-card">
+                        <div class="card-plan-header">
+                            <h3>Explorer</h3>
+                            <p class="plan-sub-desc">For testing WanderAI on your next weekend trip.</p>
+                        </div>
+                        <div class="price-display">$0<span class="period">/mo</span></div>
+                        <ul class="plan-feature-list">
+                            <li><i data-lucide="check" class="check-icon"></i> 2 AI itineraries per month</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Basic budget planner</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Weather summary</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Standard booking access</li>
+                        </ul>
+                        <button class="btn-secondary select-plan-btn btn-full" data-plan="Explorer ($0/mo)">Select Explorer</button>
+                    </article>
+
+                    <article class="portal-price-card popular-card">
+                        <div class="popular-ribbon"><i data-lucide="sparkles"></i> MOST POPULAR</div>
+                        <div class="card-plan-header">
+                            <h3>Nomad Pass</h3>
+                            <p class="plan-sub-desc">For frequent leisure travelers and vacationers.</p>
+                        </div>
+                        <div class="price-display" id="nomadPriceText">$12<span class="period">/mo</span></div>
+                        <ul class="plan-feature-list">
+                            <li><i data-lucide="check" class="check-icon"></i> Unlimited AI itineraries</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Smart packing lists</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Offline itinerary access</li>
+                            <li><i data-lucide="check" class="check-icon"></i> 15% Genius Stay Discounts</li>
+                            <li><i data-lucide="check" class="check-icon"></i> AI Price Drop Alerts</li>
+                        </ul>
+                        <button class="hero-submit-btn select-plan-btn btn-full" data-plan="Nomad ($12/mo)">Upgrade to Nomad</button>
+                    </article>
+
+                    <article class="portal-price-card">
+                        <div class="card-plan-header">
+                            <h3>Atlas VIP</h3>
+                            <p class="plan-sub-desc">For families, group travel, and multi-city tours.</p>
+                        </div>
+                        <div class="price-display" id="atlasPriceText">$29<span class="period">/mo</span></div>
+                        <ul class="plan-feature-list">
+                            <li><i data-lucide="check" class="check-icon"></i> Shared trip team workspaces</li>
+                            <li><i data-lucide="check" class="check-icon"></i> Real-time route adjustments</li>
+                            <li><i data-lucide="check" class="check-icon"></i> 20% Genius Stay Discounts</li>
+                            <li><i data-lucide="check" class="check-icon"></i> 24/7 Priority AI Concierge</li>
+                        </ul>
+                        <button class="btn-secondary select-plan-btn btn-full" data-plan="Atlas ($29/mo)">Select Atlas VIP</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 WanderAI Technologies Inc. All rights reserved. Membership & Pricing Desk.
+                </div>
+                <div class="payment-badges">
+                    <span class="pay-badge">VISA</span>
+                    <span class="pay-badge">Mastercard</span>
+                    <span class="pay-badge">AMEX</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

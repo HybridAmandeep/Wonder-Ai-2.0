@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Destinations & Stays — WanderAI</title>
+    <meta name="description"
+        content="Browse trending destinations, luxury hotels, and AI-curated trips with lowest price guarantee on WanderAI.">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body class="site-body">
+
+    <!-- TOP UTILITY BAR -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i data-lucide="shield-check"></i> Best Price Guarantee</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="sparkles"></i> AI-Powered Travel Matching</span>
+                <span class="top-bar-item desktop-only"><i data-lucide="headphones"></i> 24/7 AI Support</span>
+            </div>
+            <div class="top-bar-right">
+                <!-- Currency Selector -->
+                <div class="top-utility-dropdown" id="currencyDropdown">
+                    <button class="top-utility-btn" id="currencyBtn">
+                        <span class="currency-symbol">$</span> USD <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="top-utility-menu" id="currencyMenu">
+                        <button class="utility-menu-item active" data-currency="USD" data-symbol="$">USD ($) - US Dollar</button>
+                        <button class="utility-menu-item" data-currency="EUR" data-symbol="€">EUR (€) - Euro</button>
+                        <button class="utility-menu-item" data-currency="GBP" data-symbol="£">GBP (£) - British Pound</button>
+                        <button class="utility-menu-item" data-currency="INR" data-symbol="₹">INR (₹) - Indian Rupee</button>
+                    </div>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="top-utility-dropdown" id="langDropdown">
+                    <button class="top-utility-btn" id="langBtn">
+                        <span class="flag-icon">🇺🇸</span> EN <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="top-utility-menu" id="langMenu">
+                        <button class="utility-menu-item active"><span class="flag-icon">🇺🇸</span> English (US)</button>
+                        <button class="utility-menu-item"><span class="flag-icon">🇬🇧</span> English (UK)</button>
+                        <button class="utility-menu-item"><span class="flag-icon">🇪🇸</span> Español</button>
+                    </div>
+                </div>
+
+                <a href="booking.html" class="top-utility-link">List Your Property</a>
+                <a href="wishlist.html" class="top-utility-link wishlist-nav-link">
+                    <i data-lucide="heart"></i> Saved
+                    <span class="wishlist-badge-count" id="navWishlistCount">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN DESKTOP NAVIGATION -->
+    <header class="main-header" id="desktopNav">
+        <div class="header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                    <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                </a>
+
+                <!-- Primary Booking Services Navigation Tabs -->
+                <nav class="primary-service-tabs">
+                    <a href="booking.html" class="service-tab active">
+                        <i data-lucide="building-2"></i> <span>Stays</span>
+                    </a>
+                    <a href="booking.html#flights" class="service-tab">
+                        <i data-lucide="plane"></i> <span>Flights</span>
+                    </a>
+                    <a href="index.html#ai-playground" class="service-tab highlight-tab">
+                        <i data-lucide="sparkles"></i> <span>AI Planner</span>
+                    </a>
+                    <a href="booking.html" class="service-tab">
+                        <i data-lucide="palmtree"></i> <span>Packages</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="header-right-actions">
+                <a href="pricing.html" class="nav-secondary-link">Pricing</a>
+                <a href="moodboard.html" class="nav-secondary-link">Brand</a>
+
+                <!-- Notifications Bell -->
+                <div class="notif-dropdown-wrapper" id="navNotifWrapper">
+                    <button class="icon-btn header-icon-btn" id="navNotifBtn" aria-label="Notifications">
+                        <i data-lucide="bell"></i>
+                        <span class="notif-badge" id="navNotifBadge" style="display: none;">0</span>
+                    </button>
+                    <div class="notif-menu" id="navNotifMenu">
+                        <div class="notif-header">
+                            <h4>Notifications</h4>
+                            <button class="notif-clear-btn" id="notifClearBtn">Clear All</button>
+                        </div>
+                        <div class="notif-list" id="notifList"></div>
+                    </div>
+                </div>
+
+                <div id="navUserArea" class="flex-center">
+                    <a href="login.html" class="btn-secondary btn-sm" id="signInBtn">Sign In</a>
+                    <a href="signup.html" class="btn-primary btn-sm" id="signUpBtn">Register</a>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Slide-Over Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-slide-menu" id="mobileSlideMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="WanderAI Logo" class="logo-img">
+                <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+            </a>
+            <button class="icon-btn mobile-close" id="mobileClose" aria-label="Close Menu"><i data-lucide="x"></i></button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="index.html" class="mobile-menu-link"><i data-lucide="home"></i> Home</a>
+            <a href="booking.html" class="mobile-menu-link active"><i data-lucide="building-2"></i> Stays & Hotels</a>
+            <a href="index.html#ai-playground" class="mobile-menu-link"><i data-lucide="sparkles"></i> AI Itinerary Planner</a>
+            <a href="wishlist.html" class="mobile-menu-link"><i data-lucide="heart"></i> Saved Wishlist</a>
+            <a href="dashboard.html" class="mobile-menu-link"><i data-lucide="layout-dashboard"></i> My Dashboard</a>
+            <a href="pricing.html" class="mobile-menu-link"><i data-lucide="credit-card"></i> Pricing Plans</a>
+        </div>
+        <div class="mobile-menu-footer">
+            <a href="signup.html" class="btn-primary btn-full">Register Free Account</a>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-nav-item" data-tab="home">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="home"></i></div>
+            <span>Home</span>
+        </a>
+        <a href="booking.html" class="mobile-nav-item active" data-tab="explore">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="building-2"></i></div>
+            <span>Stays</span>
+        </a>
+        <a href="index.html#ai-playground" class="mobile-nav-item" data-tab="ai">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="sparkles"></i></div>
+            <span>AI Plan</span>
+        </a>
+        <a href="wishlist.html" class="mobile-nav-item" data-tab="wishlist">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="heart"></i></div>
+            <span>Saved</span>
+        </a>
+        <a href="signup.html" class="mobile-nav-item" data-tab="account">
+            <div class="mobile-nav-icon-wrap"><i data-lucide="user"></i></div>
+            <span>Account</span>
+        </a>
+    </nav>
+
+    <!-- EXPLORE MAIN CONTAINER -->
+    <div class="page-transition">
+        <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+            
+            <!-- PORTAL SEARCH & BANNER HEADER -->
+            <div class="explore-header-banner">
+                <div>
+                    <span class="section-tag-pill"><i data-lucide="compass"></i> Global Explore Portal</span>
+                    <h1 class="explore-page-title">Find Stays, Packages & AI Itineraries</h1>
+                    <p class="explore-page-subtitle">Search over 2,000,000+ luxury stays, beachfront villas, and mountain resorts with instant weather previews.</p>
+                </div>
+            </div>
+
+            <div class="explore-main-container">
+                <!-- Sidebar Filters Panel -->
+                <aside class="sidebar-filters">
+                    <div class="filter-title">
+                        <span><i data-lucide="sliders" style="width:16px; height:16px; color:var(--brand-blue);"></i> Filter Results</span>
+                        <button class="icon-btn" id="clearFiltersBtn" style="font-size: 0.8rem; color: var(--brand-blue); font-weight: 700;">Reset</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterSearch" class="field-label"><i data-lucide="search"></i> Keyword Search</label>
+                        <input type="text" id="filterSearch" class="search-input-field" placeholder="e.g. Greece, Kyoto, villa...">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterCategory" class="field-label"><i data-lucide="tag"></i> Vibe / Category</label>
+                        <select id="filterCategory" class="search-input-field select-field">
+                            <option value="all">All Categories</option>
+                            <option value="beach">🏖️ Beach & Coastal</option>
+                            <option value="adventure">🏔️ Adventure & Ski</option>
+                            <option value="nature">🌿 Nature & National Parks</option>
+                            <option value="culture">🏛️ Historical & Culture</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterPrice" class="field-label"><i data-lucide="dollar-sign"></i> Max Budget <span class="range-val" id="priceRangeVal">$2,500</span></label>
+                        <input type="range" id="filterPrice" min="800" max="2500" step="100" value="2500" style="width: 100%;">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterDuration" class="field-label"><i data-lucide="clock"></i> Max Duration <span class="range-val" id="durationRangeVal">8 days</span></label>
+                        <input type="range" id="filterDuration" min="4" max="8" step="1" value="8" style="width: 100%;">
+                    </div>
+
+                    <div class="filter-promo-box">
+                        <div class="promo-box-title"><i data-lucide="crown"></i> Genius Discount</div>
+                        <p>Sign in to unlock an additional 10%–20% off select stays.</p>
+                        <a href="login.html" class="btn-primary btn-sm btn-full" style="margin-top: 10px;">Sign In</a>
+                    </div>
+                </aside>
+
+                <!-- Destinations Display Grid -->
+                <main class="explore-main-content">
+                    <div class="destinations-grid-dynamic" id="dynamicDestGrid">
+                        <!-- Cards dynamically rendered via script.js -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL MODAL OVERLAY -->
+    <div class="modal-overlay" id="detailModalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close modal"><i data-lucide="x"></i></button>
+            <img src="" alt="" class="modal-hero-img" id="modalHeroImg">
+            <div class="modal-body">
+                <div class="modal-title-row">
+                    <h2 id="modalTitle">Destination Name</h2>
+                    <span class="modal-price-tag" id="modalPrice">$0</span>
+                </div>
+                <div class="modal-meta-row">
+                    <span id="modalDuration"><i data-lucide="clock" class="icon-inline"></i> 0 days</span>
+                    <span>•</span>
+                    <span id="modalRating"><i data-lucide="star" class="icon-inline" style="color: #FFB700; fill: #FFB700;"></i> 0.0</span>
+                    <span>•</span>
+                    <span id="modalSeason">Best Season: May to October</span>
+                </div>
+
+                <!-- Weather widget -->
+                <div class="weather-widget">
+                    <div class="weather-left">
+                        <span class="weather-temp" id="weatherTemp">--°C</span>
+                        <div class="weather-info-block">
+                            <span class="weather-info-desc" id="weatherDesc">Loading...</span>
+                            <span class="weather-info-source" id="weatherSource">live API</span>
+                        </div>
+                        <img src="" alt="Weather" class="weather-icon-img" id="weatherIcon">
+                    </div>
+                    <div class="weather-right">
+                        <div>Feels like: <strong id="weatherFeels">--°C</strong></div>
+                        <div>Humidity: <strong id="weatherHumidity">--%</strong></div>
+                        <div>Wind: <strong id="weatherWind">-- km/h</strong></div>
+                    </div>
+                </div>
+
+                <p class="modal-desc" id="modalDesc">Detailed description here.</p>
+
+                <div class="modal-grid-columns">
+                    <div class="modal-activities">
+                        <h3>Included Experiences & Highlights</h3>
+                        <ul class="activity-list" id="modalActivityList">
+                            <!-- Activities dynamic -->
+                        </ul>
+                    </div>
+                    <div class="modal-booking-panel">
+                        <h3>Plan & Reserve</h3>
+                        <form id="modalBookingForm">
+                            <div class="booking-form-group">
+                                <label for="bookingStart">Check-in Date</label>
+                                <input type="date" id="bookingStart" class="booking-form-input" required>
+                            </div>
+                            <div class="booking-form-group">
+                                <label for="bookingEnd">Check-out Date</label>
+                                <input type="date" id="bookingEnd" class="booking-form-input" required>
+                            </div>
+                            <div class="booking-form-group">
+                                <label for="bookingGuests">Travelers</label>
+                                <input type="number" id="bookingGuests" class="booking-form-input" min="1" max="10" value="2" required>
+                            </div>
+                            <div class="booking-total-calc">
+                                <span>Est. Total Amount:</span>
+                                <span id="bookingTotal">$0</span>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;" id="modalSubmitBtn">
+                                Proceed to Checkout <i data-lucide="arrow-right" class="btn-icon"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKING SUCCESS OVERLAY -->
+    <div class="booking-overlay" id="bookingOverlay"></div>
+    <div class="booking-success-toast" id="bookingSuccessToast">
+        <div class="toast-glow"></div>
+        <div class="toast-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path class="toast-check-path" d="M4 12.6L9.3 18L20 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="toast-body">
+            <span class="toast-title">Your Trip Has Been Booked!</span>
+            <span class="toast-subtitle">Redirecting to secure checkout...</span>
+        </div>
+        <div class="toast-progress-bar"><div class="toast-progress-fill"></div></div>
+    </div>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main-grid">
+                <div class="footer-col-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/footer-logo.png" alt="WanderAI Logo" class="logo-img">
+                        <span class="logo-text">Wander<span class="logo-accent">AI</span></span>
+                    </a>
+                    <p>AI-Powered Travel Booking & Itinerary Generation Platform. Discover your next dream adventure in seconds.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Popular Destinations</h4>
+                    <a href="booking.html?id=kyoto">Kyoto, Japan</a>
+                    <a href="booking.html?id=santorini">Santorini, Greece</a>
+                    <a href="booking.html?id=maldives">Maldives Islands</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Property Types</h4>
+                    <a href="booking.html">Luxury Hotels</a>
+                    <a href="booking.html">Beach Villas</a>
+                    <a href="booking.html">City Apartments</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>WanderAI Features</h4>
+                    <a href="index.html#ai-playground">AI Itinerary Generator</a>
+                    <a href="pricing.html">AI Concierge Subscription</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company & Support</h4>
+                    <a href="pricing.html">About Us</a>
+                    <a href="#">Help Center / FAQ</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 WanderAI Technologies Inc. All rights reserved. Inspired by Booking.com, Kayak, MakeMyTrip & Agoda.
+                </div>
+                <div class="payment-badges">
+                    <span class="pay-badge">VISA</span>
+                    <span class="pay-badge">Mastercard</span>
+                    <span class="pay-badge">AMEX</span>
+                    <span class="pay-badge">Apple Pay</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
