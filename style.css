@@ -6000,26 +6000,108 @@ section {
     color: #475569; /* Readable Medium Slate Grey */
 }
 
-/* 4. High-Contrast Typography for Dark Sections (Top Bar, Header, Hero, AI Playground, Genius, Footer) */
+/* 4. High-Contrast Typography for Dark Header / Hero Backgrounds */
 .top-bar,
 .top-bar *,
 .main-header,
 .main-header .logo-text,
-.hero-booking-section,
-.hero-booking-section *,
+.hero-header-text,
+.hero-header-text *,
 .hero-main-title,
+.hero-sub-title,
 .ai-playground-section,
 .ai-playground-section .section-main-heading,
 .ai-playground-section .section-sub-heading,
 .ai-playground-section h2,
 .ai-playground-section h3,
 .ai-playground-section p,
-.genius-card *,
+.genius-card h2,
+.genius-card p,
 .site-footer,
 .site-footer *,
 .mobile-slide-menu,
 .mobile-slide-menu * {
     color: #FFFFFF !important;
+}
+
+/* 5. SEARCH WIDGET CARD STYLING FIX (White Card Container inside Hero) */
+.search-widget-card,
+.search-widget-card * {
+    color: initial;
+}
+
+.search-widget-card .field-label {
+    color: #475569 !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+}
+
+.search-widget-card .search-input-field {
+    color: #0F172A !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+}
+
+.search-widget-card .search-input-field::placeholder {
+    color: #94A3B8 !important;
+}
+
+.widget-tab-btn {
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 0.92rem !important;
+}
+
+.widget-tab-btn.active {
+    background: rgba(0, 108, 228, 0.08) !important;
+    color: #006CE4 !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+}
+
+.widget-quick-filters .quick-filter-label {
+    color: #64748B !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+}
+
+.widget-quick-filters .filter-chip {
+    background: #F1F5F9 !important;
+    color: #334155 !important;
+    border: 1px solid #E2E8F0 !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    border-radius: 999px !important;
+    padding: 6px 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.widget-quick-filters .filter-chip i {
+    color: #006CE4 !important;
+}
+
+.widget-quick-filters .filter-chip:hover {
+    background: rgba(0, 108, 228, 0.08) !important;
+    color: #006CE4 !important;
+    border-color: #006CE4 !important;
+}
+
+.search-widget-card .hero-submit-btn {
+    background: #FFB700 !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 14px rgba(255, 183, 0, 0.3) !important;
+}
+
+.search-widget-card .hero-submit-btn i,
+.search-widget-card .hero-submit-btn span {
+    color: #000000 !important;
 }
 
 .ai-playground-section .section-sub-heading,
